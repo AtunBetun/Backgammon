@@ -1,4 +1,5 @@
 package GUI;
+import GUI.OPTIONS.*;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -13,7 +14,7 @@ public class menuBar extends JMenuBar {
         newGameMenuItem.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                // The options window goes here
+                new gameOptionsFrame();
 
             }
         });

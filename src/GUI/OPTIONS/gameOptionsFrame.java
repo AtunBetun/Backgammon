@@ -1,5 +1,6 @@
 package GUI.OPTIONS;
 
+import GUI.*;
 import javax.swing.*;
 
 public class gameOptionsFrame extends JFrame {
@@ -7,9 +8,12 @@ public class gameOptionsFrame extends JFrame {
 
     public gameOptionsFrame(){
         super("New Game Settings");
-        this.setSize(400, 200);
+        this.setSize(400, 300);
 
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        JPanel theLocalGamePanel = new localGamePanel();
+
+        this.add(theLocalGamePanel);
+        this.setResizable(false);
         this.setVisible(true);
     }
 }
