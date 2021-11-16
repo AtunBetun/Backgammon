@@ -1,14 +1,17 @@
 package GUI.OPTIONS;
 
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+
+
 public class localGamePanel extends JPanel {
 
     public localGamePanel(){
-        ImageIcon startButtonImage = new ImageIcon("startButton.png"); // Original Start Image Icon
+        ImageIcon startButtonImage = new ImageIcon("src/RESOURCES/startButton.png"); // Original Start Image Icon
         ImageIcon resizedStartButton = scaleImage(startButtonImage, 120, 80); // Resized Image Icon
 
         JButton localGameStartButton = new JButton(); // the Start Button
@@ -27,8 +30,7 @@ public class localGamePanel extends JPanel {
 
     }
 
-
-    // Stack Overflow function
+    // Stack Overflow function for resizing the ImageIcon
     // https://stackoverflow.com/questions/6714045/how-to-resize-jlabel-imageicon
     public static ImageIcon scaleImage(ImageIcon icon, int w, int h) {
         int nw = icon.getIconWidth();
