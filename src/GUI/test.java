@@ -7,6 +7,4 @@ public class test {
         System.out.println("Hello Fucking World");
     }
 
-    // (1600, 800)
-
 }
