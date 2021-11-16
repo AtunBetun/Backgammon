@@ -3,7 +3,7 @@ package GUI.OPTIONS;
 import javax.swing.*;
 
 public class gameOptionsFrame extends JFrame {
-    static final String LOCALGAME = "Local Game";
+    static final String LOCAL_HUMANS = "Local Game";
 
     public gameOptionsFrame(){
         super("New Game Settings");
