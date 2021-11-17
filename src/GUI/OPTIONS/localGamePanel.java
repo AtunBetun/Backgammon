@@ -43,7 +43,7 @@ public class localGamePanel extends JPanel {
         height = getHeight();
         width = getWidth();
 
-        g.drawImage(backgammonIcon, width - 30, height - 30, this);
+        graphicsObject.drawImage(backgammonIcon, width - 30, height - 30, this);
     }
 
     public void getImages(){
