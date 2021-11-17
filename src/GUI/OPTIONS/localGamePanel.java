@@ -29,7 +29,7 @@ public class localGamePanel extends JPanel {
             }
         });
 
-        this.setBackground(Color.lightGray);
+        //this.setBackground(Color.lightGray);
         this.add(localGameStartButton);
 
     }
@@ -43,19 +43,20 @@ public class localGamePanel extends JPanel {
         height = getHeight();
         width = getWidth();
 
-        graphicsObject.drawImage(backgammonIcon, width - 30, height - 30, this);
+        graphicsObject.drawImage(backgammonIcon, width - 40, height - 40, this);
     }
 
     public void getImages(){
         try{
             backgammonIcon = ImageIO.read(new File("src/RESOURCES/backgammonIcon.png"));
-            backgammonIcon = resizeBufferedImage(backgammonIcon, 30, 30);
+            backgammonIcon = resizeBufferedImage(backgammonIcon, 40, 40);
 
             startButtonImage = new ImageIcon("src/RESOURCES/startButton.png"); // Original Start Image Icon
             startButtonImage = resizeImageIcon(startButtonImage, 120, 80); // Resized Image Icon
         }
         catch (IOException ex){
-
+            System.out.println("IO Exception catched when getting images\n Ending program");
+            System.exit(1);
         }
     }
 
