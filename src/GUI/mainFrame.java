@@ -1,5 +1,6 @@
 package GUI;
 
+import GAME.Backgammon;
 import GUI.PANELS.welcomePanel;
 
 import javax.swing.*;
@@ -19,15 +20,16 @@ public class mainFrame extends JFrame{
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setSize(1200,800);
         this.setResizable(false);
-        this.setVisible(true);
+        //this.setVisible(true);
 
     }
 
     public static void welcomeScreen(){
-
+        welcomePanel theWelcomePanel = new welcomePanel();
+        Backgammon.theMainFrame.add(theWelcomePanel);
+        theWelcomePanel.repaint();
+        Backgammon.theMainFrame.setVisible(true);
     }
-
-
 
 
 }

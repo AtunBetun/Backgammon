@@ -1,5 +1,6 @@
 package GUI.OPTIONS;
 
+import GAME.Backgammon;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -25,7 +26,7 @@ public class localGamePanel extends JPanel {
         localGameStartButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                // ADD THE START GAME FUNCTION HERE
+                Backgammon.startGame();
             }
         });
 

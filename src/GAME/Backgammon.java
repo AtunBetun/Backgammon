@@ -6,17 +6,19 @@ import GUI.mainFrame;
 import javax.swing.*;
 
 public class Backgammon {
-    private static mainFrame theMainFrame;
-    public static String gameState;
-    public static String endGame;
+    public static mainFrame theMainFrame;
+
 
     public final static String WELCOME_STATE = "welcomeState";
     public final static String START_GAME = "startGame";
 
 
     public Backgammon(){
+        Game.setGameState("run");
         theMainFrame = new mainFrame();
-        endGame = "run";
+
+        mainFrame.welcomeScreen(); // Calling a new welcomeScreen panel
+
     }
 
     public static void main(String[] args){
@@ -24,9 +26,8 @@ public class Backgammon {
 
     }
 
-
-    public static void startGame(mainFrame theFrame){
-
+    public static void startGame(){
+        System.out.println("Clicked Start Game Button");
     }
 
 }

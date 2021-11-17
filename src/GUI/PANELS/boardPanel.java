@@ -7,7 +7,7 @@ import java.awt.geom.GeneralPath;
 public class boardPanel extends JPanel {
 
     public boardPanel() {
-        boardPanel theBoard = new boardPanel();
+        // boardPanel theBoard = new boardPanel();
     }
 
     @Override
