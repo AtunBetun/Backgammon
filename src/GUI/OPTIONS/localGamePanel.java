@@ -43,7 +43,7 @@ public class localGamePanel extends JPanel {
         height = getHeight();
         width = getWidth();
 
-        g.drawImage(backgammonIcon, 0, 0, this);
+        g.drawImage(backgammonIcon, width - 30, height - 30, this);
     }
 
     public void getImages(){
@@ -78,6 +78,8 @@ public class localGamePanel extends JPanel {
         return new ImageIcon(icon.getImage().getScaledInstance(nw, nh, Image.SCALE_DEFAULT));
     }
 
+    // Stack Overflow function for resizing the BufferedImage
+    // https://stackoverflow.com/questions/9417356/bufferedimage-resize
     public static BufferedImage resizeBufferedImage(BufferedImage img, int newW, int newH) {
         Image tmp = img.getScaledInstance(newW, newH, Image.SCALE_SMOOTH);
         BufferedImage dimg = new BufferedImage(newW, newH, BufferedImage.TYPE_INT_ARGB);
