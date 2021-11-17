@@ -14,7 +14,7 @@ public class Backgammon {
 
 
     public Backgammon(){
-        Game.setGameState("run");
+        Game.setGameState(START_GAME);
         theMainFrame = new mainFrame();
 
         mainFrame.welcomeScreen(); // Calling a new welcomeScreen panel
