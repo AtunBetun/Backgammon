@@ -12,7 +12,10 @@ public class gameOptionsFrame extends JFrame {
 
         JPanel theLocalGamePanel = new localGamePanel();
 
-        this.add(theLocalGamePanel);
+        JTabbedPane gameModes = new JTabbedPane();
+        gameModes.add("Local Game", theLocalGamePanel);
+
+        this.add(gameModes);
         this.setResizable(false);
         this.setVisible(true);
     }
