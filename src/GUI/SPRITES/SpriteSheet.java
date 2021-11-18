@@ -29,9 +29,8 @@ public class SpriteSheet {
         }
     }
 
-    public SpriteSheet(BufferedImage i)
+    public SpriteSheet()
     {
-        this.image = i;
     }
 
     public static BufferedImage grabImage(int col, int row, int height, int width)

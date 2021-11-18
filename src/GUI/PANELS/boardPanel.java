@@ -85,7 +85,12 @@ public class boardPanel extends JPanel {
                 botx2 = botx2 + 95;
                 topx = topx + 94;
             }
+
         }
+       int h = this.getHeight() / 2;
+        Dice die = new Dice();
+        g.drawImage(die.dice1,800,h - 25, 60, 60,null);
+        g.drawImage(die.dice2,700,h - 25,60,60,null);
 
 
     }

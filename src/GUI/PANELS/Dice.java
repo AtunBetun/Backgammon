@@ -8,17 +8,14 @@ import GUI.SPRITES.SpriteSheet;
 
 public class Dice extends JPanel{
 
-    private static BufferedImage dice1, dice2;
-    private SpriteSheet ss;
+    public static BufferedImage dice1, dice2;
+    private SpriteSheet ss = new SpriteSheet();
 
     public Dice()
     {
+        ss.init();
       dice1 = ss.getDie(1);
       dice2 = ss.getDie(1);
-      Graphics g = dice1.getGraphics();
-      g.drawImage(dice1,100,100, (ImageObserver) this);
-      g = dice2.getGraphics();
-      g.drawImage(dice1,200,200, (ImageObserver) this);
     }
 
 
