@@ -1,15 +1,18 @@
 package GAME;
 
 public class Game {
-    private static String gameState;
-    private static String endGame;
+    private int gameState;
+    private boolean hasStarted;
 
-    public Game() { }
+    public Game() {
+        setGameState(Backgammon.WELCOME_STATE);
 
-    public void setGameState (String state) { gameState = state; }
-    public static String getGameState() { return gameState; }
-    public void setEndGame(String state) { endGame = state; }
-    public static String getEndGame() { return endGame; }
+    }
+
+    public void setGameState (int state) { gameState = state; }
+    public int getGameState() { return gameState; }
+    public void setHasStarted(boolean state) { hasStarted = state; }
+    public boolean getHasStarted() { return hasStarted; }
 
 
 }
