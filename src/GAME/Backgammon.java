@@ -7,13 +7,13 @@ import javax.swing.*;
 
 public class Backgammon {
     public static mainFrame theMainFrame;
+    public static Game theGame;
 
     public final static String WELCOME_STATE = "welcomeState";
     public final static String START_GAME = "startGame";
 
 
     public Backgammon(){
-        Game.setGameState(START_GAME);
         theMainFrame = new mainFrame();
 
         mainFrame.welcomeScreen(); // Calling a new welcomeScreen panel
@@ -26,10 +26,12 @@ public class Backgammon {
     }
 
     public static void startGame(){
+        theGame = new Game();
+        theGame.setGameState(START_GAME);
 
         mainFrame.clearTheMainFramePanels(); // Clear the JPanels on the mainFrame
         mainFrame.createEmptyBoardScreen(); // add the board JPanel to the mainFrame
-        System.out.println("Clicked Start Game Button");
+        //System.out.println("Clicked Start Game Button");
     }
 
 }
