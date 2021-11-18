@@ -10,6 +10,9 @@ public class Backgammon {
     public static mainFrame theMainFrame;
     public static Game theGame;
 
+    public static int whiteWins = 0;
+    public static int blackWins = 0;
+
     public final static int WELCOME_STATE = -1;
     public final static int START_GAME = 0;
     public final static int END_GAME = 1;
@@ -30,6 +33,9 @@ public class Backgammon {
             }
             System.out.println("Game Started!");
             while (theGame.getGameState() != END_GAME){
+                // GET WHITE TURN
+                // GET BLACK TURN
+                theMainFrame.repaint();
 
             }
 
@@ -39,6 +45,8 @@ public class Backgammon {
 
     public static void startGame(){
         theGame.setGameState(START_GAME);
+
+        boardState theBoardState = new boardState();
 
         mainFrame.clearTheMainFramePanels(); // Clear the JPanels on the mainFrame
         mainFrame.createEmptyBoardScreen(); // add the board JPanel to the mainFrame

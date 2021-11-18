@@ -14,5 +14,4 @@ public class Game {
     public void setHasStarted(boolean state) { hasStarted = state; }
     public boolean getHasStarted() { return hasStarted; }
 
-
 }
