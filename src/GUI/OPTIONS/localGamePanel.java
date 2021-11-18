@@ -15,8 +15,10 @@ public class localGamePanel extends JPanel {
 
     private BufferedImage backgammonIcon;
     private ImageIcon startButtonImage;
+    private gameOptionsFrame theFrame;
 
-    public localGamePanel(){
+    public localGamePanel(gameOptionsFrame theGameOptionsFrame){
+        theFrame = theGameOptionsFrame;
         this.getImages(); // Get the images from the resources
 
         JButton localGameStartButton = new JButton(); // the Start Button
@@ -27,6 +29,7 @@ public class localGamePanel extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Backgammon.startGame();
+                gameOptionsFrame.closeGameOptionsFrame(theFrame);
             }
         });
 

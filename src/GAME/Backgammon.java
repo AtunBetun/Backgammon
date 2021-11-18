@@ -8,7 +8,6 @@ import javax.swing.*;
 public class Backgammon {
     public static mainFrame theMainFrame;
 
-
     public final static String WELCOME_STATE = "welcomeState";
     public final static String START_GAME = "startGame";
 
@@ -27,6 +26,9 @@ public class Backgammon {
     }
 
     public static void startGame(){
+
+        mainFrame.clearTheMainFramePanels(); // Clear the JPanels on the mainFrame
+        mainFrame.createEmptyBoardScreen(); // add the board JPanel to the mainFrame
         System.out.println("Clicked Start Game Button");
     }
 

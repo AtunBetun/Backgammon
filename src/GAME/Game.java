@@ -4,9 +4,7 @@ public class Game {
     private static String gameState;
     private static String endGame;
 
-    public Game(){
-
-    }
+    public Game() { }
 
     public static void setGameState (String state) { gameState = state; }
     public static String getGameState() { return gameState; }
