@@ -87,10 +87,6 @@ public class boardPanel extends JPanel {
             }
 
         }
-       int h = this.getHeight() / 2;
-        Dice die = new Dice();
-        g.drawImage(die.dice1,800,h - 25, 60, 60,null);
-        g.drawImage(die.dice2,700,h - 25,60,60,null);
 
 
     }

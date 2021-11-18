@@ -18,5 +18,15 @@ public class Dice extends JPanel{
       dice2 = ss.getDie(0);
     }
 
+    public void start()
+    {
+        int h = this.getHeight() / 2;
+        Dice die = new Dice();
+        Graphics g = dice1.getGraphics();
+        g.drawImage(die.dice1, 800, h - 25, 60, 60, null);
+        g = dice2.getGraphics();
+        g.drawImage(die.dice2, 700, h - 25, 60, 60, null);
+    }
+
 
 }

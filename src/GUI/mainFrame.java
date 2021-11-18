@@ -1,13 +1,9 @@
 package GUI;
 
 import GAME.Backgammon;
-import GUI.PANELS.welcomePanel;
 import GUI.PANELS.boardPanel;
-
+import GUI.PANELS.welcomePanel;
 import javax.swing.*;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import java.awt.event.MouseMotionListener;
 
 public class mainFrame extends JFrame{
 
