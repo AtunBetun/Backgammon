@@ -37,6 +37,7 @@ public class mainFrame extends JFrame{
         Backgammon.theMainFrame.getContentPane().add(emptyBoardPanel);
         emptyBoardPanel.repaint();
         Backgammon.theMainFrame.setVisible(true);
+        Backgammon.theMainFrame.repaint();
     }
 
     public static void clearTheMainFramePanels(){

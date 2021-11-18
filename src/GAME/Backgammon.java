@@ -15,7 +15,6 @@ public class Backgammon {
 
     public Backgammon(){
         theMainFrame = new mainFrame();
-
         mainFrame.welcomeScreen(); // Calling a new welcomeScreen panel
 
     }
@@ -31,7 +30,6 @@ public class Backgammon {
 
         mainFrame.clearTheMainFramePanels(); // Clear the JPanels on the mainFrame
         mainFrame.createEmptyBoardScreen(); // add the board JPanel to the mainFrame
-        //System.out.println("Clicked Start Game Button");
     }
 
 }

@@ -19,6 +19,7 @@ public class welcomePanel extends JPanel {
 
     @Override
     protected void paintComponent(Graphics g){
+        this.setBackground(Color.BLACK);
         super.paintComponent(g);
         Graphics2D graphicsObject = (Graphics2D) g;
         graphicsObject.translate(this.getWidth() / 2, this.getHeight() / 2);
