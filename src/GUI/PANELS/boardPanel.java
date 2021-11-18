@@ -7,7 +7,9 @@ import java.awt.geom.GeneralPath;
 public class boardPanel extends JPanel {
 
     public boardPanel() {
-        // boardPanel theBoard = new boardPanel();
+        // THE BACKGROUND IS NOT WORKING AFTER IMPORTING TO MASTER
+//        Color back = new Color(153,102,0);
+//        this.setBackground(back);
     }
 
     @Override
@@ -81,6 +83,8 @@ public class boardPanel extends JPanel {
                 topx = topx + 94;
             }
         }
+
+
     }
 
 
