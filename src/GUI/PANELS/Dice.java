@@ -14,8 +14,8 @@ public class Dice extends JPanel{
     public Dice()
     {
         ss.init();
-      dice1 = ss.getDie(1);
-      dice2 = ss.getDie(1);
+      dice1 = ss.getDie(0);
+      dice2 = ss.getDie(0);
     }
 
 
