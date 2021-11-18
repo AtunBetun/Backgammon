@@ -17,6 +17,9 @@ public class boardPanel extends JPanel {
         int topx = 49, topy = 325, botx1 = 4, botx2 = 95;
         Graphics2D g2 = (Graphics2D) g.create();
         Color c = new Color(102,51,0);
+        Color back = new Color(153,102,0);
+        g2.setColor(back);
+        g2.fillRect(0,0,this.getWidth(),this.getHeight());
         g2.setColor(c);
         g2.fillRect(575,0,50,1200);
         for(int i = 2; i < 14; i++) {
