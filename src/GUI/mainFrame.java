@@ -3,7 +3,10 @@ package GUI;
 import GAME.Backgammon;
 import GUI.PANELS.boardPanel;
 import GUI.PANELS.welcomePanel;
+import GUI.PANELS.dicePanel;
 import javax.swing.*;
+import java.awt.*;
+
 
 public class mainFrame extends JFrame{
 
@@ -42,6 +45,18 @@ public class mainFrame extends JFrame{
     public static void clearTheMainFramePanels(){
         Backgammon.theMainFrame.getContentPane().removeAll();
         Backgammon.theMainFrame.repaint();
+    }
+
+    public static void showDice()
+    {
+        dicePanel die = new dicePanel();
+        Backgammon.theMainFrame.getContentPane().add(die);
+        die.repaint();
+
+        Backgammon.theMainFrame.repaint();
+        Backgammon.theMainFrame.setVisible(true);
+
+
     }
 
 }
