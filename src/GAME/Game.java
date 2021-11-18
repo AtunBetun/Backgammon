@@ -6,7 +6,6 @@ public class Game {
 
     public Game() {
         setGameState(Backgammon.WELCOME_STATE);
-
     }
 
     public void setGameState (int state) { gameState = state; }

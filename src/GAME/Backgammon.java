@@ -22,11 +22,15 @@ public class Backgammon {
         theGame = new Game();
         theMainFrame = new mainFrame();
         mainFrame.welcomeScreen(); // Calling a new welcomeScreen panel
-
     }
 
     public static void main(String[] args) throws InterruptedException {
         Backgammon theBackgammon = new Backgammon();
+
+        while (theGame.getGameState() == WELCOME_STATE){
+            Thread.sleep(threadSleepTime);
+        }
+
         while (true){
             while (!theGame.getHasStarted()){ // If game has not started yet then sleep
                 Thread.sleep(threadSleepTime*2);
@@ -45,7 +49,6 @@ public class Backgammon {
 
     public static void startGame(){
         theGame.setGameState(START_GAME);
-
         boardState theBoardState = new boardState();
 
         mainFrame.clearTheMainFramePanels(); // Clear the JPanels on the mainFrame

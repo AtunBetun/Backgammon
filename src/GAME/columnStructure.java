@@ -9,4 +9,15 @@ public class columnStructure {
 
     ArrayList<Piece> pieces;
 
+    public ArrayList<Piece> getThePieces(){
+        return pieces;
+    }
+
+    public void addPiece(boolean pieceColor){
+        Piece theAddedPiece = new Piece(pieceColor);
+        pieces.add(theAddedPiece);
+    }
+
+
+
 }
