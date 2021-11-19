@@ -45,12 +45,13 @@ public class Backgammon {
 
     public static void startGame(){
         theGame.setGameState(START_GAME);
+        theGame.setCurrentTurn(Game.WHITE_TURN);
         Board theBoard = new Board();
 
         mainFrame.clearTheMainFramePanels(); // Clear the JPanels on the mainFrame
         mainFrame.createEmptyBoardScreen(); // add the board JPanel to the mainFrame
 
-        theGame.setHasStarted(true);
+        //theGame.setHasStarted(true);
     }
 
 

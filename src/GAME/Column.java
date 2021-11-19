@@ -13,7 +13,7 @@ public class Column {
 
     // Default Constructor for Column()
     public Column(){
-
+        pieces = new ArrayList<Piece>();
     }
 
     public ArrayList<Piece> getThePieces(){
@@ -21,7 +21,8 @@ public class Column {
     }
 
     public void addPiece(boolean pieceColor){
-        pieces.add(new Piece(pieceColor));
+        Piece theAddedPiece = new Piece(pieceColor);
+        pieces.add(theAddedPiece);
     }
 
     public int getPieceCount(){
@@ -43,6 +44,10 @@ public class Column {
 
     public boolean getColumnSelection(){
         return columnSelected;
+    }
+
+    public Column getColumn(){
+        return this;
     }
 
 }
