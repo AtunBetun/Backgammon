@@ -1,10 +1,6 @@
 package GAME;
 
-import GUI.PANELS.welcomePanel;
 import GUI.mainFrame;
-import GAME.*;
-
-import javax.swing.*;
 
 public class Backgammon {
     public static mainFrame theMainFrame;
@@ -49,7 +45,7 @@ public class Backgammon {
 
     public static void startGame(){
         theGame.setGameState(START_GAME);
-        boardState theBoardState = new boardState();
+        Board theBoard = new Board();
 
         mainFrame.clearTheMainFramePanels(); // Clear the JPanels on the mainFrame
         mainFrame.createEmptyBoardScreen(); // add the board JPanel to the mainFrame
