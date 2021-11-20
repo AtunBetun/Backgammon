@@ -12,6 +12,7 @@ public class Game {
     // Default Constructor for Game()
     public Game() {
         setGameState(Backgammon.WELCOME_STATE);
+        setHasStarted(Backgammon.GAME_HAS_NOT_STARTED);
     }
 
     // Game State Functions

@@ -7,7 +7,22 @@ public class Piece {
     private boolean pieceColor;
 
     public Piece(){ }
-    public Piece (boolean theColor) { this.pieceColor = theColor; }
-    public boolean getPieceColor() { return pieceColor; }
+
+    public Piece (boolean theColor) {
+        this.pieceColor = theColor;
+
+    }
+    public boolean getPieceColor() {
+        return pieceColor;
+    }
+
+    public String printPieceColor() {
+        if (this.pieceColor == BLACK_PIECE){
+            return ("BLACK");
+        }
+        else{
+            return ("WHITE");
+        }
+    }
 
 }

@@ -9,19 +9,22 @@ public class Backgammon {
     public static int whiteWins = 0;
     public static int blackWins = 0;
 
+    public final static boolean GAME_HAS_STARTED = true;
+    public final static boolean GAME_HAS_NOT_STARTED = false;
+
     public final static int WELCOME_STATE = -1;
     public final static int START_GAME = 0;
     public final static int END_GAME = 1;
     public final static long threadSleepTime = 10;
 
     public Backgammon(){
-        theGame = new Game();
-        theMainFrame = new mainFrame();
+        theGame = new Game(); // Starts a new game
+        theMainFrame = new mainFrame(); // Creates a new mainFrame
         mainFrame.welcomeScreen(); // Calling a new welcomeScreen panel
     }
 
     public static void main(String[] args) throws InterruptedException {
-        Backgammon theBackgammon = new Backgammon();
+        Backgammon theBackgammon = new Backgammon(); // Start new Backgammon Object
 
         while (theGame.getGameState() == WELCOME_STATE){
             Thread.sleep(threadSleepTime);
@@ -45,8 +48,11 @@ public class Backgammon {
 
     public static void startGame(){
         theGame.setGameState(START_GAME);
+        theGame.setHasStarted(GAME_HAS_STARTED);
         theGame.setCurrentTurn(Game.WHITE_TURN);
         Board theBoard = new Board();
+
+        theBoard.printTheColumns();
 
         mainFrame.clearTheMainFramePanels(); // Clear the JPanels on the mainFrame
         mainFrame.createEmptyBoardScreen(); // add the board JPanel to the mainFrame

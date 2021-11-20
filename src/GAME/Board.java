@@ -40,7 +40,7 @@ public class Board {
     public void addStartingPieces(){
 
         // Column 1 - 2 White Pieces
-        theColumns[1].addPiece(Piece.WHITE_PIECE); //theColumns[1].addPiece(Piece.WHITE_PIECE);
+        theColumns[1].addPiece(Piece.WHITE_PIECE); theColumns[1].addPiece(Piece.WHITE_PIECE);
 
         // Column 12 - 5 White Pieces
         theColumns[12].addPiece(Piece.WHITE_PIECE); theColumns[12].addPiece(Piece.WHITE_PIECE);
@@ -75,7 +75,11 @@ public class Board {
     }
 
     public void printTheColumns(){
-
+        for (int i = 1; i < theColumns.length - 1; i++){
+            System.out.print("Column " + i + ": ");
+            theColumns[i].printTheColumn();
+            System.out.println();
+        }
     }
 
 }

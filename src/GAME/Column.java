@@ -50,4 +50,10 @@ public class Column {
         return this;
     }
 
+    public void printTheColumn(){
+        for (int i = 0; i < getPieceCount(); i++){
+            System.out.print(pieces.get(i).printPieceColor() + " ");
+        }
+    }
+
 }
