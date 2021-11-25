@@ -1,9 +1,9 @@
 package GUI;
 
 import GAME.Backgammon;
-import GUI.PANELS.boardPanel;
 import GUI.PANELS.welcomePanel;
-import GUI.PANELS.dicePanel;
+import GUI.PANELS.boardPanel;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -47,8 +47,7 @@ public class mainFrame extends JFrame{
         Backgammon.theMainFrame.repaint();
     }
 
-    public static void showDice()
-    {
+    public static void showDice() {
         dicePanel die = new dicePanel();
         Backgammon.theMainFrame.getContentPane().add(die);
         die.repaint();
