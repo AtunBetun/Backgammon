@@ -34,12 +34,13 @@ public class Backgammon {
             while (!theGame.getHasStarted()){ // If game has not started yet then sleep
                 Thread.sleep(threadSleepTime*2);
             }
+
             System.out.println("Game Started!");
+
             while (theGame.getGameState() != END_GAME){
                 // GET WHITE TURN
                 // GET BLACK TURN
                 theMainFrame.repaint();
-
             }
 
         }
@@ -52,12 +53,11 @@ public class Backgammon {
         theGame.setCurrentTurn(Game.WHITE_TURN);
         Board theBoard = new Board();
 
-        theBoard.printTheColumns();
+        theBoard.printTheColumns(); // Printing the initial columns state
 
         mainFrame.clearTheMainFramePanels(); // Clear the JPanels on the mainFrame
         mainFrame.createEmptyBoardScreen(); // add the board JPanel to the mainFrame
 
-        //theGame.setHasStarted(true);
     }
 
 
