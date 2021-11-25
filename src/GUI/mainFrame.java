@@ -1,6 +1,7 @@
 package GUI;
 
 import GAME.Backgammon;
+import GUI.PANELS.dicePanel;
 import GUI.PANELS.welcomePanel;
 import GUI.PANELS.boardPanel;
 
