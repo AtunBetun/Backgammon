@@ -37,7 +37,7 @@ public class Board {
         }
     }
 
-    public void addStartingPieces(){
+    public void addStartingPieces() {
 
         // Column 1 - 2 White Pieces
         theColumns[1].addPiece(Piece.WHITE_PIECE); theColumns[1].addPiece(Piece.WHITE_PIECE);

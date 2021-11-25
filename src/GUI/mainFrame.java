@@ -1,13 +1,12 @@
 package GUI;
 
 import GAME.Backgammon;
-import GUI.PANELS.welcomePanel;
 import GUI.PANELS.boardPanel;
-
+import GUI.PANELS.welcomePanel;
+//import GUI.PANELS.dicePanel;
 import javax.swing.*;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import java.awt.event.MouseMotionListener;
+import java.awt.*;
+
 
 public class mainFrame extends JFrame{
 
@@ -48,59 +47,15 @@ public class mainFrame extends JFrame{
         Backgammon.theMainFrame.repaint();
     }
 
-}
-
-class PaintMouseListener implements MouseListener{
-
-    JComponent component;
-
-    public PaintMouseListener(JComponent component) {
-        this.component = component;
-    }
-
-    @Override
-    public void mouseClicked(MouseEvent e) {
-        component.repaint();
-    }
-
-    @Override
-    public void mousePressed(MouseEvent e) {
-        component.repaint();
-    }
-
-    @Override
-    public void mouseReleased(MouseEvent e) {
-        component.repaint();
-    }
-
-    @Override
-    public void mouseEntered(MouseEvent e) {
-        component.repaint();
-    }
-
-    @Override
-    public void mouseExited(MouseEvent e) {
-        component.repaint();
-    }
-
-}
-
-class PaintMouseMotionListener implements MouseMotionListener{
-
-    JComponent component;
-
-    public PaintMouseMotionListener(JComponent component) {
-        this.component = component;
-    }
-
-    @Override
-    public void mouseDragged(MouseEvent e) {
-        component.repaint();
-    }
-
-    @Override
-    public void mouseMoved(MouseEvent e) {
-        component.repaint();
-    }
+//    public static void showDice() {
+//        dicePanel die = new dicePanel();
+//        Backgammon.theMainFrame.getContentPane().add(die);
+//        die.repaint();
+//
+//        Backgammon.theMainFrame.repaint();
+//        Backgammon.theMainFrame.setVisible(true);
+//
+//
+//    }
 
 }
