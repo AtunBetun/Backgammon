@@ -9,8 +9,9 @@ import GUI.PANELS.boardPanel;
 import javax.swing.*;
 import java.awt.*;
 
-
 public class mainFrame extends JFrame{
+    private static boardPanel theBoardPanel;
+    private static dicePanel theDicePanel;
 
     public mainFrame(){
         super("Backgammon");
@@ -26,6 +27,14 @@ public class mainFrame extends JFrame{
 
     }
 
+    public boardPanel getTheBoardPanel(){
+        return theBoardPanel;
+    }
+
+    public dicePanel getTheDicePanel(){
+        return theDicePanel;
+    }
+
     public static void welcomeScreen(){
         welcomePanel theWelcomePanel = new welcomePanel();
         Backgammon.theMainFrame.getContentPane().add(theWelcomePanel);
@@ -36,14 +45,14 @@ public class mainFrame extends JFrame{
     }
 
     public static void createEmptyBoardScreen(){
-        boardPanel emptyBoardPanel = new boardPanel();
+        theBoardPanel = new boardPanel();
 
-        emptyBoardPanel.setLayout(null);
-        emptyBoardPanel.addMoveButtons();
+        theBoardPanel.setLayout(null);
+        theBoardPanel.addMoveButtons();
 
-        Backgammon.theMainFrame.getContentPane().add(emptyBoardPanel);
+        Backgammon.theMainFrame.getContentPane().add(theBoardPanel);
 
-        emptyBoardPanel.repaint();
+        theBoardPanel.repaint();
 
         Backgammon.theMainFrame.repaint();
         Backgammon.theMainFrame.setVisible(true);
@@ -55,9 +64,9 @@ public class mainFrame extends JFrame{
     }
 
     public static void showDice() {
-        dicePanel die = new dicePanel();
-        Backgammon.theMainFrame.getContentPane().add(die);
-        die.repaint();
+        theDicePanel = new dicePanel();
+        Backgammon.theMainFrame.getContentPane().add(theDicePanel);
+        theDicePanel.repaint();
 
         Backgammon.theMainFrame.repaint();
         Backgammon.theMainFrame.setVisible(true);

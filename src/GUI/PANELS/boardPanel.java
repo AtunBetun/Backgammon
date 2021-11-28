@@ -97,19 +97,48 @@ public class boardPanel extends JPanel {
     }
 
     public void addMoveButtons(){
-        moveButton theButtons[] = Backgammon.theBoard.getTheButtons();
+        moveButton[] theButtons = Backgammon.theBoard.getTheButtons();
 
-        System.out.printf("GetHeight is: %s", super.getHeight());
+        int x, y;
 
-//        testButton.setBounds(1130 , getHeight(), 35, 20);
-
-        int x = 1130;
-        int y = 0;
-        for (int i = theButtons.length - 1; i > theButtons.length/2; i--){
+        // Upper Right Quadrant
+        x = 1130;
+        y = 0;
+        for (int i = theButtons.length - 2; i >= theButtons.length - theButtons.length/4 - 1; i--){
             theButtons[i].setBounds(x, y, 35, 20);
             x -= 95;
-            this.add(theButtons[i]);
+            Backgammon.theMainFrame.getTheBoardPanel().add(theButtons[i]);
         }
+
+        x = 505;
+        y = 0;
+        // Upper Left Quadrant
+        for (int i = theButtons.length - 8; i >= 10; i--){
+            theButtons[i].setBounds(x, y, 35, 20);
+            x -= 95;
+            Backgammon.theMainFrame.getTheBoardPanel().add(theButtons[i]);
+        }
+
+
+        x = 1130;
+        y = 720;
+        // Down Right Quadrant
+        for (int i = 1; i < 7; i++){
+            theButtons[i].setBounds(x, y, 35, 20);
+            x -= 95;
+            Backgammon.theMainFrame.getTheBoardPanel().add(theButtons[i]);
+        }
+
+        x = 505;
+        y = 720;
+        // Down Left Quadrant
+        for (int i = 7; i < 13; i++){
+            theButtons[i].setBounds(x, y, 35, 20);
+            x -= 95;
+            Backgammon.theMainFrame.getTheBoardPanel().add(theButtons[i]);
+        }
+
+
     }
 
 

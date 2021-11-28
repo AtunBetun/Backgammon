@@ -39,7 +39,7 @@ public class Backgammon {
             while (theGame.getGameState() != END_GAME) {
                 // GET WHITE TURN
                 // GET BLACK TURN
-                theMainFrame.repaint();
+//                theMainFrame.repaint();
 
             }
 
@@ -53,9 +53,7 @@ public class Backgammon {
         theGame.setCurrentTurn(Game.WHITE_TURN);
 
         theBoard = new Board();
-
         theBoard.printTheColumns();
-
 
         mainFrame.clearTheMainFramePanels(); // Clear the JPanels on the mainFrame
         mainFrame.showDice();  // New Line added

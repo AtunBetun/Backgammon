@@ -10,8 +10,8 @@ public class Board {
 
     private boolean boardSelected;
 
-    private int diceRoll[];
-    private int doubleRoll[];
+    private int[] diceRoll;
+    private int[] doubleRoll;
 
     public Board(){
         theColumns = new Column[26];

@@ -12,7 +12,7 @@ public class moveButton extends JButton {
     private int theColumnNumber;
 
     public moveButton(int columnNumber){
-        this.theColumnNumber = columnNumber + 1;
+        this.theColumnNumber = columnNumber;
 
         this.setBackground(Color.LIGHT_GRAY);
         this.setBorder(new LineBorder(Color.WHITE, 1));
@@ -25,6 +25,8 @@ public class moveButton extends JButton {
         this.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+
+                System.out.printf("Clicked the button %s\n", theColumnNumber);
 
                 if (!Backgammon.theBoard.isBoardSelected()      // Check that the board is NOT Selected
                         && !Backgammon.theBoard.getTheColumns()[theColumnNumber].isSelected()  // Check that the column is NOT selected
