@@ -8,7 +8,7 @@ public class Board {
     private Column whiteMiddleColumn;
     private moveButton[] theButtons;
 
-    private boolean isBoardSelected;
+    private boolean boardSelected;
 
     private int diceRoll[];
     private int doubleRoll[];
@@ -22,8 +22,20 @@ public class Board {
         addStartingPieces(); // addTheStartingPieces to the Board
     }
 
-    public void setTheButtonsOnBoard(){
-
+    public boolean isBoardSelected(){
+        if (boardSelected){
+            return true;
+        }
+        return false;
+    }
+    public void selectBoard(){
+        boardSelected = true;
+    }
+    public void unselectBoard(){
+        boardSelected = false;
+    }
+    public moveButton[] getTheButtons(){
+        return theButtons;
     }
 
     public int[] getDiceRoll(){

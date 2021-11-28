@@ -2,6 +2,7 @@ package GUI;
 
 import GAME.Backgammon;
 import GUI.PANELS.dicePanel;
+import GUI.PANELS.moveButton;
 import GUI.PANELS.welcomePanel;
 import GUI.PANELS.boardPanel;
 
@@ -36,7 +37,12 @@ public class mainFrame extends JFrame{
 
     public static void createEmptyBoardScreen(){
         boardPanel emptyBoardPanel = new boardPanel();
+
+        emptyBoardPanel.setLayout(null);
+        emptyBoardPanel.addMoveButtons();
+
         Backgammon.theMainFrame.getContentPane().add(emptyBoardPanel);
+
         emptyBoardPanel.repaint();
 
         Backgammon.theMainFrame.repaint();

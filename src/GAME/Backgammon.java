@@ -51,9 +51,11 @@ public class Backgammon {
         theGame.setGameState(START_GAME);
         theGame.setHasStarted(GAME_HAS_STARTED);
         theGame.setCurrentTurn(Game.WHITE_TURN);
+
         theBoard = new Board();
 
         theBoard.printTheColumns();
+
 
         mainFrame.clearTheMainFramePanels(); // Clear the JPanels on the mainFrame
         mainFrame.showDice();  // New Line added
