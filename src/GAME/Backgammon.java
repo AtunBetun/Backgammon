@@ -8,6 +8,7 @@ import javax.swing.*;
 public class Backgammon {
     public static mainFrame theMainFrame;
     public static Game theGame;
+    public static Board theBoard;
 
     public final static boolean GAME_HAS_STARTED = true;
     public final static boolean GAME_HAS_NOT_STARTED = false;
@@ -50,7 +51,7 @@ public class Backgammon {
         theGame.setGameState(START_GAME);
         theGame.setHasStarted(GAME_HAS_STARTED);
         theGame.setCurrentTurn(Game.WHITE_TURN);
-        Board theBoard = new Board();
+        theBoard = new Board();
 
         theBoard.printTheColumns();
 

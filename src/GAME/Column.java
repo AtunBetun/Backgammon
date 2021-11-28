@@ -38,12 +38,17 @@ public class Column {
         }
     }
 
-    public void selectColumn(boolean theSelection){
-        columnSelected = theSelection;
+    public void selectColumn(){
+        if (!columnSelected){
+            columnSelected = true;
+        }
     }
 
-    public boolean getColumnSelection(){
-        return columnSelected;
+    public boolean isSelected(){
+        if (columnSelected){
+            return true;
+        }
+        return false;
     }
 
     public Column getColumn(){

@@ -1,17 +1,29 @@
 package GAME;
 
+import GUI.PANELS.moveButton;
+
 public class Board {
     private Column[] theColumns;
     private Column blackMiddleColumn;
     private Column whiteMiddleColumn;
+    private moveButton[] theButtons;
+
+    private boolean isBoardSelected;
 
     private int diceRoll[];
     private int doubleRoll[];
 
     public Board(){
         theColumns = new Column[26];
+        theButtons = new moveButton[26];
+
+        initializeButtons();
         initializeColumns(); // Initialize the columns
         addStartingPieces(); // addTheStartingPieces to the Board
+    }
+
+    public void setTheButtonsOnBoard(){
+
     }
 
     public int[] getDiceRoll(){
@@ -28,6 +40,10 @@ public class Board {
 
     public void setDoubleRoll(int[] theDoubleRoll){
         diceRoll = theDoubleRoll;
+    }
+
+    public Column[] getTheColumns(){
+        return theColumns;
     }
 
     public void initializeColumns(){
@@ -79,6 +95,12 @@ public class Board {
             System.out.print("Column " + i + ": ");
             theColumns[i].printTheColumn();
             System.out.println();
+        }
+    }
+
+    public void initializeButtons(){
+        for(int i = 0; i < theButtons.length; i++){
+            theButtons[i] = new moveButton(i);
         }
     }
 
