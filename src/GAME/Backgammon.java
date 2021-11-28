@@ -35,7 +35,7 @@ public class Backgammon {
             while (!theGame.getHasStarted()) { // If game has not started yet then sleep
                 Thread.sleep(threadSleepTime * 2);
             }
-            System.out.println("Game Started!");
+//            System.out.println("Game Started!");
             while (theGame.getGameState() != END_GAME) {
                 // GET WHITE TURN
                 // GET BLACK TURN
