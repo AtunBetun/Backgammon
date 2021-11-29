@@ -27,6 +27,17 @@ public class Moves {
         clearPossibleMoves();
     }
 
+    public int[] getDiceForMove(){
+        return diceForMove;
+    }
+    public boolean[] getPossibleMoves(){
+        return possibleMoves;
+    }
+    public boolean[] getCapturePieces(){
+        return capturePieces;
+    }
+
+
     public void setPossibleMove(int index){
         possibleMoves[index] = true;
     }
@@ -59,11 +70,18 @@ public class Moves {
         int secondDiceIndex;
         int combinedDiceIndex;
 
+        System.out.print("# ComputeColumnPossibleMoves #\n");
+        System.out.printf("Dice 1: %s    Dice 2: %s\n", theBoard.getDiceRoll()[0], theBoard.getDiceRoll()[1]);
+
         if (theGame.getCurrentTurn() == Game.WHITE_TURN){
 
-            firstDiceIndex = columnNumber - theBoard.getDiceRoll()[0];
-            secondDiceIndex = columnNumber - theBoard.getDiceRoll()[1];
-            combinedDiceIndex = columnNumber - theBoard.getDiceRoll()[0] - theBoard.getDiceRoll()[1];
+//            System.out.printf("Column %s\n", columnNumber);
+
+            firstDiceIndex = columnNumber + theBoard.getDiceRoll()[0];
+            secondDiceIndex = columnNumber + theBoard.getDiceRoll()[1];
+            combinedDiceIndex = columnNumber + theBoard.getDiceRoll()[0] + theBoard.getDiceRoll()[1];
+
+            System.out.printf("Dice 1 Index: %s    Dice 2 Index: %s     CombinedDice Index: %s\n", firstDiceIndex, secondDiceIndex, combinedDiceIndex);
 
             firstDicePossible = isIndexPossible(firstDiceIndex);
             secondDicePossible = isIndexPossible(secondDiceIndex);
@@ -81,15 +99,15 @@ public class Moves {
 
             // ## COMBINED DICE ## (ONLY ON THE INITIAL DICE ROLL)
             if (combinedDicePossible && theBoard.getDiceRoll()[0] != 0 && theBoard.getDiceRoll()[1] != 0){
-                computeDiceIndexPossibleMoves(secondDiceIndex, Column.WHITE, SECOND_DICE);
+                computeDiceIndexPossibleMoves(combinedDiceIndex, Column.WHITE, SECOND_DICE);
             }
 
         }
 
         else if (theGame.getCurrentTurn() == Game.BLACK_TURN){
-            firstDiceIndex = columnNumber + theBoard.getDiceRoll()[0];
-            secondDiceIndex = columnNumber + theBoard.getDiceRoll()[1];
-            combinedDiceIndex = columnNumber + theBoard.getDiceRoll()[0] - theBoard.getDiceRoll()[1];
+            firstDiceIndex = columnNumber - theBoard.getDiceRoll()[0];
+            secondDiceIndex = columnNumber - theBoard.getDiceRoll()[1];
+            combinedDiceIndex = columnNumber - theBoard.getDiceRoll()[0] - theBoard.getDiceRoll()[1];
 
             firstDicePossible = isIndexPossible(firstDiceIndex);
             secondDicePossible = isIndexPossible(secondDiceIndex);
@@ -107,7 +125,7 @@ public class Moves {
 
             // ## COMBINED DICE ## (ONLY ON THE INITIAL DICE ROLL)
             if (combinedDicePossible && theBoard.getDiceRoll()[0] != 0 && theBoard.getDiceRoll()[1] != 0){
-                computeDiceIndexPossibleMoves(secondDiceIndex, Column.BLACK, SECOND_DICE);
+                computeDiceIndexPossibleMoves(combinedDiceIndex, Column.BLACK, SECOND_DICE);
             }
         }
 
@@ -122,31 +140,32 @@ public class Moves {
             oppositeColor = Column.WHITE;
         }
 
+        System.out.printf("\n# Dice Index: %s  checkColor: %s  diceUsed: %s #\n", diceIndex, checkColor, theDiceUsed);
 
         // Empty Column
         if (theBoard.getTheColumns()[diceIndex].pieces.size() == 0){
             possibleMoves[diceIndex] = POSSIBLE_MOVE;
             diceForMove[diceIndex] = theDiceUsed;
-
+            System.out.printf("Empty Column Possible %s\n", diceIndex);
             playerHasPossibleTurn = true;
         }
 
-        // Filled Column White
+        // Filled Column
         else if (theBoard.getTheColumns()[diceIndex].pieces.size() != 0
                 && theBoard.getTheColumns()[diceIndex].getColumnColor() == checkColor){
             possibleMoves[diceIndex] = POSSIBLE_MOVE;
             diceForMove[diceIndex] = theDiceUsed;
-
+            System.out.printf("Filled Column Possible %s\n", diceIndex);
             playerHasPossibleTurn = true;
         }
 
-        // Steal Black Column
+        // Steal Column
         else if (theBoard.getTheColumns()[diceIndex].pieces.size() == 1
                 && theBoard.getTheColumns()[diceIndex].getColumnColor() == oppositeColor){
             possibleMoves[diceIndex] = POSSIBLE_MOVE;
             capturePieces[diceIndex] = POSSIBLE_MOVE;
             diceForMove[diceIndex] = theDiceUsed;
-
+            System.out.printf("Steal Column Possible %s\n", diceIndex);
             playerHasPossibleTurn = true;
         }
     }

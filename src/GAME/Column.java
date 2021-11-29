@@ -68,7 +68,19 @@ public class Column {
     }
 
     public void columnComputePossibleMoves(int columnNumber){
+        System.out.printf("# Column Compute on %s #\n", columnNumber);
         columnMoves.computeColumnPossibleMoves(columnNumber);
     }
+
+    public int[] getDiceForMove(){
+        return columnMoves.getDiceForMove();
+    }
+    public boolean[] getPossibleMoves(){
+        return columnMoves.getPossibleMoves();
+    }
+    public boolean[] getCapturePieces(){
+        return columnMoves.getCapturePieces();
+    }
+
 
 }

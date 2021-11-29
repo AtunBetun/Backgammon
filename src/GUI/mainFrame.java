@@ -98,8 +98,8 @@ public class mainFrame extends JFrame{
             Backgammon.theMainFrame.setVisible(true);
     }
 
-    public static void showExistingTurnButtons(){
-        System.out.println("Checking the turnButtons");
+    public void showExistingTurnButtons(){
+        System.out.println("\n## SHOW EXISTING TURN BUTTONS ##");
         if (Backgammon.theGame.getCurrentTurn() == Game.WHITE_TURN){
             for (int i = 1; i < 25; i++){
 
@@ -109,12 +109,12 @@ public class mainFrame extends JFrame{
 
                 if (Backgammon.theBoard.getTheColumns()[i].getPieceCount() > 0 // If Piece Count > 0
                         && Backgammon.theBoard.getTheColumns()[i].getColumnColor() == Column.WHITE){ // Column Color is white
-                    System.out.printf("Column %s - Visible\n\n", i);
+                    System.out.printf("Column %s - Visible\n", i);
 
                     Backgammon.theBoard.getTheButtons()[i].setVisible(true); // Make the Button Visible
                 }
                 else{
-                    System.out.printf("Column %s - Invisible\n\n", i);
+                    System.out.printf("Column %s - Invisible\n", i);
                     Backgammon.theBoard.getTheButtons()[i].setVisible(false); // Make the Button Invisible
                 }
             }
@@ -141,6 +141,36 @@ public class mainFrame extends JFrame{
                 }
             }
         }
+
+
+        updateTheMainFrame();
+    }
+
+    public void showPossibleMoveButtons(){
+        int selectedColumnIndex = Backgammon.theBoard.getSelectedColumn();
+
+        System.out.printf("\n\n## Possible Move Buttons on Column %s ##\n", selectedColumnIndex);
+
+        for(int i = 1; i <= 24; i++){
+
+            // If the selected column has possible moves or capture pieces then set the button
+            if (Backgammon.theBoard.getTheColumns()[selectedColumnIndex].getPossibleMoves()[i]
+                || Backgammon.theBoard.getTheColumns()[i].getCapturePieces()[i]){
+                System.out.printf("Visible %s\n", i);
+                Backgammon.theBoard.getTheButtons()[i].setVisible(true);
+            }
+
+            // If there are no moves make it invisible
+            else{
+                Backgammon.theBoard.getTheButtons()[i].setVisible(false);
+            }
+
+
+        }
+
+        Backgammon.theBoard.getTheButtons()[selectedColumnIndex].setVisible(true);
+
+        updateTheMainFrame();
 
 
     }
