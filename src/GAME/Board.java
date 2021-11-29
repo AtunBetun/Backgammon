@@ -22,6 +22,7 @@ public class Board {
     public Board(){
         theColumns = new Column[26];
         theButtons = new moveButton[26];
+        diceRoll = new int[2];
 
         setTheSelectedColumn(NO_COLUMN_SELECTED);
 

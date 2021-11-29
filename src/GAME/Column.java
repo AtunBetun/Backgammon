@@ -67,4 +67,8 @@ public class Column {
         }
     }
 
+    public void columnComputePossibleMoves(int columnNumber){
+        columnMoves.computeColumnPossibleMoves(columnNumber);
+    }
+
 }

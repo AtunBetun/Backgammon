@@ -1,13 +1,6 @@
 package GAME;
 
-import GAME.Backgammon;
-import javax.swing.*;
-import java.awt.*;
-import java.awt.image.BufferedImage;
 import java.util.Arrays;
-import java.util.Objects;
-
-import GUI.SPRITES.SpriteSheet;
 
 import static GAME.Backgammon.*;
 
@@ -32,7 +25,6 @@ public class Moves {
         capturePieces = new boolean[26];
 
         clearPossibleMoves();
-
     }
 
     public void setPossibleMove(int index){
@@ -58,7 +50,7 @@ public class Moves {
         Arrays.fill(capturePieces, INVALID_MOVE);
         playerHasPossibleTurn = false;
     }
-    public void computeColumnPossibleMoves(int index){
+    public void computeColumnPossibleMoves(int columnNumber){
         boolean firstDicePossible;
         boolean secondDicePossible;
         boolean combinedDicePossible;
@@ -69,9 +61,9 @@ public class Moves {
 
         if (theGame.getCurrentTurn() == Game.WHITE_TURN){
 
-            firstDiceIndex = index - theBoard.getDiceRoll()[0];
-            secondDiceIndex = index - theBoard.getDiceRoll()[1];
-            combinedDiceIndex = index - theBoard.getDiceRoll()[0] - theBoard.getDiceRoll()[1];
+            firstDiceIndex = columnNumber - theBoard.getDiceRoll()[0];
+            secondDiceIndex = columnNumber - theBoard.getDiceRoll()[1];
+            combinedDiceIndex = columnNumber - theBoard.getDiceRoll()[0] - theBoard.getDiceRoll()[1];
 
             firstDicePossible = isIndexPossible(firstDiceIndex);
             secondDicePossible = isIndexPossible(secondDiceIndex);
@@ -95,9 +87,9 @@ public class Moves {
         }
 
         else if (theGame.getCurrentTurn() == Game.BLACK_TURN){
-            firstDiceIndex = index + theBoard.getDiceRoll()[0];
-            secondDiceIndex = index + theBoard.getDiceRoll()[1];
-            combinedDiceIndex = index + theBoard.getDiceRoll()[0] - theBoard.getDiceRoll()[1];
+            firstDiceIndex = columnNumber + theBoard.getDiceRoll()[0];
+            secondDiceIndex = columnNumber + theBoard.getDiceRoll()[1];
+            combinedDiceIndex = columnNumber + theBoard.getDiceRoll()[0] - theBoard.getDiceRoll()[1];
 
             firstDicePossible = isIndexPossible(firstDiceIndex);
             secondDicePossible = isIndexPossible(secondDiceIndex);

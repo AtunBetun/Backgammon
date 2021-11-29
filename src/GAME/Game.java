@@ -76,7 +76,38 @@ public class Game {
 
     }
 
-    public void computePlayerPossibleMoves(){
+    public void gameComputePossibleMoves(){
+
+        System.out.println("## Computing the possible Moves ##");
+        if (Backgammon.theGame.getCurrentTurn() == Game.WHITE_TURN){
+
+            System.out.println("# Computing WHITE #");
+            for (int i = 1; i <= 24; i++){
+
+                // Compute the column possible mvoes of a non empty column that is the turn's color
+                if (Backgammon.theBoard.getTheColumns()[i].pieces.size() > 0
+                    && Backgammon.theBoard.getTheColumns()[i].getColumnColor() == Column.WHITE){
+                    System.out.printf("Column %s\n", i);
+
+                    Backgammon.theBoard.getTheColumns()[i].columnComputePossibleMoves(i);
+                }
+
+            }
+        }
+
+        else if (Backgammon.theGame.getCurrentTurn() == Game.BLACK_TURN){
+            System.out.println("# Computing BLACK #");
+            for (int i = 1; i <= 24; i++){
+                // Compute the column possible mvoes of a non empty column that is the turn's color
+                if (Backgammon.theBoard.getTheColumns()[i].pieces.size() > 0
+                    && Backgammon.theBoard.getTheColumns()[i].getColumnColor() == Column.BLACK){
+                    System.out.printf("Column %s\n", i);
+
+                    Backgammon.theBoard.getTheColumns()[i].columnComputePossibleMoves(i);
+                }
+
+            }
+        }
 
     }
 
