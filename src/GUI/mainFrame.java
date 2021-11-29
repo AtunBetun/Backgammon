@@ -8,6 +8,7 @@ import GUI.PANELS.moveButton;
 import GUI.PANELS.welcomePanel;
 import GUI.PANELS.boardPanel;
 import GUI.PANELS.checkersPanel;
+import GUI.PANELS.finalPieces;
 
 import javax.sound.midi.SysexMessage;
 import javax.swing.*;
@@ -17,6 +18,7 @@ public class mainFrame extends JFrame{
     private static boardPanel theBoardPanel;
     private static dicePanel theDicePanel;
     private static checkersPanel theCheckerPanel;
+    private static finalPieces theScorePieces;
 
     public mainFrame(){
         super("Backgammon");
@@ -96,6 +98,16 @@ public class mainFrame extends JFrame{
 
             Backgammon.theMainFrame.repaint();
             Backgammon.theMainFrame.setVisible(true);
+    }
+
+    public static void placeScorePieces()
+    {
+        theScorePieces = new finalPieces();
+        Backgammon.theMainFrame.getContentPane().add(theScorePieces);
+        theScorePieces.repaint();
+
+        Backgammon.theMainFrame.repaint();
+        Backgammon.theMainFrame.setVisible(true);
     }
 
     public static void showExistingTurnButtons(){
