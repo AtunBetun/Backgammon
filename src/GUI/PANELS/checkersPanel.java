@@ -55,6 +55,19 @@ public class checkersPanel extends JPanel {
             }
             w = w + 95;
         }
+        int n = Backgammon.theBoard.getBlackMiddleColumn().getPieceCount();
+        int midWidth = (this.getWidth() / 2) - 30;
+        int blackMidHeight = 440;
+        int whiteMidHeight = 290;
+        for(int i = 0; i < n; i++) {
+            g.drawImage(blackChecker, midWidth, blackMidHeight, 40, 40, null);
+            blackMidHeight = blackMidHeight - 30;
+        }
+        n = Backgammon.theBoard.getWhiteMiddleColumn().getPieceCount();
+        for(int i = 0; i < n; i++){
+            g.drawImage(whiteChecker, midWidth,whiteMidHeight,40,40,null);
+            whiteMidHeight = whiteMidHeight + 30;
+        }
 
     }
 }

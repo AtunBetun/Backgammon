@@ -74,6 +74,9 @@ public class Board {
         return theColumns;
     }
 
+    public Column getBlackMiddleColumn(){return blackMiddleColumn;}
+    public Column getWhiteMiddleColumn(){return whiteMiddleColumn;}
+
     public void initializeColumns(){
         // Populate the 26 columns with the columns Object
         for(int i = 0; i < theColumns.length; i++){
