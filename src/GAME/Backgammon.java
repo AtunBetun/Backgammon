@@ -43,6 +43,8 @@ public class Backgammon {
                 theGame.setCurrentTurn(Game.WHITE_TURN); //Set White Turn
                 theGame.setTurnStatus(Game.INCOMPLETE_TURN); //Set as Incomplete Turn
                 //mainFrame.showExistingTurnButtons();
+                theGame.computePlayerPossibleMoves();
+
                 while (theGame.getTurnStatus() != Game.COMPLETED_TURN){
                     Thread.sleep(threadSleepTime);
                 }
