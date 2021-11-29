@@ -53,7 +53,6 @@ public class Board {
         boardSelected = false;
     }
 
-
     public int[] getDiceRoll(){
         return diceRoll;
     }
@@ -67,6 +66,13 @@ public class Board {
         diceRoll = theDoubleRoll;
     }
 
+    public void printTheColumns(){
+        for (int i = 1; i < theColumns.length - 1; i++){
+            System.out.print("Column " + i + ": ");
+            theColumns[i].printTheColumn();
+            System.out.println();
+        }
+    }
     public Column[] getTheColumns(){
         return theColumns;
     }
@@ -133,13 +139,6 @@ public class Board {
 
         blackMiddleColumn.setColumnColor(Column.BLACK);
         whiteMiddleColumn.setColumnColor(Column.WHITE);
-    }
-    public void printTheColumns(){
-        for (int i = 1; i < theColumns.length - 1; i++){
-            System.out.print("Column " + i + ": ");
-            theColumns[i].printTheColumn();
-            System.out.println();
-        }
     }
 
     public moveButton[] getTheButtons(){

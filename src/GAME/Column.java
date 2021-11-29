@@ -22,12 +22,10 @@ public class Column {
     public ArrayList<Piece> getThePieces(){
         return pieces;
     }
-
     public void addPiece(boolean pieceColor){
         Piece theAddedPiece = new Piece(pieceColor);
         pieces.add(theAddedPiece);
     }
-
     public void removePiece(){
         int index = pieces.size() - 1;
         pieces.remove(index);
@@ -36,22 +34,11 @@ public class Column {
     public int getColumnColor(){
         return columnColor;
     }
-
     public void setColumnColor(int theColor){
         columnColor = theColor;
     }
-
     public int getPieceCount(){
         return pieces.size();
-    }
-
-    public boolean emptyColumn(){
-        if (pieces.size() == 0){
-            return true;
-        }
-        else{
-            return false;
-        }
     }
 
     public void selectColumn(){
@@ -60,12 +47,10 @@ public class Column {
             columnSelected = true;
         }
     }
-
     public void unselectColumn(){
 //        System.out.println("Column Unselected");
         columnSelected = false;
     }
-
     public boolean isSelected(){
         if (columnSelected){
             return true;
@@ -76,7 +61,6 @@ public class Column {
     public Column getColumn(){
         return this;
     }
-
     public void printTheColumn(){
         for (int i = 0; i < getPieceCount(); i++){
             System.out.print(pieces.get(i).printPieceColor() + " ");
