@@ -3,11 +3,11 @@ package GAME;
 import java.util.ArrayList;
 
 public class Column {
-    public static final int EMPTY = 0;
     public static final int BLACK = -1;
     public static final int WHITE = 1;
 
     private boolean columnSelected;
+    private int columnColor;
     private int pieceCount;
     ArrayList<Piece> pieces;
 
@@ -25,6 +25,19 @@ public class Column {
         pieces.add(theAddedPiece);
     }
 
+    public void removePiece(){
+        int index = pieces.size() - 1;
+        pieces.remove(index);
+    }
+
+    public int getColumnColor(){
+        return columnColor;
+    }
+
+    public void setColumnColor(int theColor){
+        columnColor = theColor;
+    }
+
     public int getPieceCount(){
         return pieces.size();
     }
@@ -40,8 +53,14 @@ public class Column {
 
     public void selectColumn(){
         if (!columnSelected){
+//            System.out.println("Column Selected");
             columnSelected = true;
         }
+    }
+
+    public void unselectColumn(){
+//        System.out.println("Column Unselected");
+        columnSelected = false;
     }
 
     public boolean isSelected(){

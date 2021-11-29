@@ -35,19 +35,28 @@ public class Backgammon {
             while (!theGame.getHasStarted()) { // If game has not started yet then sleep
                 Thread.sleep(threadSleepTime * 2);
             }
-//            System.out.println("Game Started!");
+
             while (theGame.getGameState() != END_GAME) {
 
+                // White Turn
                 theGame.setCurrentTurn(Game.WHITE_TURN); //Set White Turn
                 theGame.setTurnStatus(Game.INCOMPLETE_TURN); //Set as Incomplete Turn
-
+                //mainFrame.showExistingTurnButtons();
                 while (theGame.getTurnStatus() != Game.COMPLETED_TURN){
-
+                    Thread.sleep(threadSleepTime);
                 }
+                System.out.println("Finished White Turn");
+                theMainFrame.updateTheMainFrame();
 
-                // GET WHITE TURN
-                // GET BLACK TURN
-//                theMainFrame.repaint();
+                // Black Turn
+                theGame.setCurrentTurn(Game.BLACK_TURN); //Set Black Turn
+                theGame.setTurnStatus(Game.INCOMPLETE_TURN); //Set as Incomplete Turn
+                //mainFrame.showExistingTurnButtons();
+                while (theGame.getTurnStatus() != Game.COMPLETED_TURN){
+                    Thread.sleep(threadSleepTime);
+                }
+                System.out.println("Finished Black Turn");
+                theMainFrame.updateTheMainFrame();
 
             }
 
@@ -55,12 +64,14 @@ public class Backgammon {
     }
 
     public static void startGame() {
+
         theGame = new Game();
+        theBoard = new Board();
+
         theGame.setGameState(START_GAME);
         theGame.setHasStarted(GAME_HAS_STARTED);
         theGame.setCurrentTurn(Game.WHITE_TURN);
 
-        theBoard = new Board();
         theBoard.printTheColumns();
 
         mainFrame.clearTheMainFramePanels(); // Clear the JPanels on the mainFrame
