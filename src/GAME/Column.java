@@ -11,9 +11,12 @@ public class Column {
     private int pieceCount;
     ArrayList<Piece> pieces;
 
+    private Moves columnMoves;
+
     // Default Constructor for Column()
     public Column(){
         pieces = new ArrayList<Piece>();
+        columnMoves = new Moves();
     }
 
     public ArrayList<Piece> getThePieces(){

@@ -9,6 +9,7 @@ public class Backgammon {
     public static mainFrame theMainFrame;
     public static Game theGame;
     public static Board theBoard;
+    public static Moves theMoves;
 
     public final static boolean GAME_HAS_STARTED = true;
     public final static boolean GAME_HAS_NOT_STARTED = false;
@@ -64,9 +65,9 @@ public class Backgammon {
     }
 
     public static void startGame() {
-
         theGame = new Game();
         theBoard = new Board();
+        theMoves = new Moves();
 
         theGame.setGameState(START_GAME);
         theGame.setHasStarted(GAME_HAS_STARTED);
