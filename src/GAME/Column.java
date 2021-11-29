@@ -25,8 +25,8 @@ public class Column {
         pieces.add(theAddedPiece);
     }
 
-    public void getColumnColor(){
-
+    public int getColumnColor(){
+        return columnColor;
     }
 
     public void setColumnColor(int theColor){

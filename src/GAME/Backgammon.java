@@ -35,12 +35,12 @@ public class Backgammon {
             while (!theGame.getHasStarted()) { // If game has not started yet then sleep
                 Thread.sleep(threadSleepTime * 2);
             }
-//            System.out.println("Game Started!");
+
             while (theGame.getGameState() != END_GAME) {
 
                 theGame.setCurrentTurn(Game.WHITE_TURN); //Set White Turn
                 theGame.setTurnStatus(Game.INCOMPLETE_TURN); //Set as Incomplete Turn
-
+                mainFrame.showTurnButtons();
                 while (theGame.getTurnStatus() != Game.COMPLETED_TURN){
 
                 }

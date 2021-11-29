@@ -77,18 +77,28 @@ public class mainFrame extends JFrame{
     }
 
     public static void showTurnButtons(){
-        Column[] theLocalColumns = Backgammon.theBoard.getTheColumns();
-
         if (Backgammon.theGame.getCurrentTurn() == Game.WHITE_TURN){
-            for (int i = 1; i < 24; i++){
-                if (theLocalColumns[i].getPieceCount() > 0 && theLocalColumns[i].){
-
+            for (int i = 1; i <= 24; i++){
+                if (Backgammon.theBoard.getTheColumns()[i].getPieceCount() > 0 // If Piece Count > 0
+                        && Backgammon.theBoard.getTheColumns()[i].getColumnColor() == Column.WHITE){ // Column Color is white
+                    Backgammon.theBoard.getTheButtons()[i].setVisible(true); // Make the Button Visible
                 }
-
-
+                else{
+                    Backgammon.theBoard.getTheButtons()[i].setVisible(false); // Make the Button Invisible
+                }
             }
+        }
 
-
+        if (Backgammon.theGame.getCurrentTurn() == Game.BLACK_TURN){
+            for (int i = 1; i <= 24; i++){
+                if (Backgammon.theBoard.getTheColumns()[i].getPieceCount() > 0 // If Piece Count > 0
+                        && Backgammon.theBoard.getTheColumns()[i].getColumnColor() == Column.BLACK){ // Column Color is white
+                    Backgammon.theBoard.getTheButtons()[i].setVisible(true); // Make the Button Visible
+                }
+                else{
+                    Backgammon.theBoard.getTheButtons()[i].setVisible(false); // Make the Button Invisible
+                }
+            }
         }
 
 
