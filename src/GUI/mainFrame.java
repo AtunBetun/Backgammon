@@ -1,6 +1,8 @@
 package GUI;
 
 import GAME.Backgammon;
+import GAME.Column;
+import GAME.Game;
 import GUI.PANELS.dicePanel;
 import GUI.PANELS.moveButton;
 import GUI.PANELS.welcomePanel;
@@ -70,6 +72,24 @@ public class mainFrame extends JFrame{
 
         Backgammon.theMainFrame.repaint();
         Backgammon.theMainFrame.setVisible(true);
+
+
+    }
+
+    public static void showTurnButtons(){
+        Column[] theLocalColumns = Backgammon.theBoard.getTheColumns();
+
+        if (Backgammon.theGame.getCurrentTurn() == Game.WHITE_TURN){
+            for (int i = 1; i < 24; i++){
+//                if (theLocalColumns[i].getPieceCount() > 0 && theLocalColumns[i].){
+//
+//                }
+
+
+            }
+
+
+        }
 
 
     }

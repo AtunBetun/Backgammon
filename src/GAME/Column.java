@@ -8,6 +8,7 @@ public class Column {
     public static final int WHITE = 1;
 
     private boolean columnSelected;
+    private int columnColor;
     private int pieceCount;
     ArrayList<Piece> pieces;
 
@@ -23,6 +24,14 @@ public class Column {
     public void addPiece(boolean pieceColor){
         Piece theAddedPiece = new Piece(pieceColor);
         pieces.add(theAddedPiece);
+    }
+
+    public void getColumnColor(){
+
+    }
+
+    public void setColumnColor(int theColor){
+        columnColor = theColor;
     }
 
     public int getPieceCount(){

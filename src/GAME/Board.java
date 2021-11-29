@@ -69,37 +69,46 @@ public class Board {
 
         // Column 1 - 2 White Pieces
         theColumns[1].addPiece(Piece.WHITE_PIECE); theColumns[1].addPiece(Piece.WHITE_PIECE);
+        theColumns[1].setColumnColor(Column.WHITE); // Column Color
+
 
         // Column 12 - 5 White Pieces
         theColumns[12].addPiece(Piece.WHITE_PIECE); theColumns[12].addPiece(Piece.WHITE_PIECE);
         theColumns[12].addPiece(Piece.WHITE_PIECE); theColumns[12].addPiece(Piece.WHITE_PIECE);
         theColumns[12].addPiece(Piece.WHITE_PIECE);
+        theColumns[12].setColumnColor(Column.WHITE); // Column Color
 
         // Column 17 - 3 White Pieces
         theColumns[17].addPiece(Piece.WHITE_PIECE); theColumns[17].addPiece(Piece.WHITE_PIECE);
         theColumns[17].addPiece(Piece.WHITE_PIECE);
+        theColumns[17].setColumnColor(Column.WHITE); // Column Color
 
         // Column 19 - 5 White Pieces
         theColumns[19].addPiece(Piece.WHITE_PIECE); theColumns[19].addPiece(Piece.WHITE_PIECE);
         theColumns[19].addPiece(Piece.WHITE_PIECE); theColumns[19].addPiece(Piece.WHITE_PIECE);
         theColumns[19].addPiece(Piece.WHITE_PIECE);
+        theColumns[19].setColumnColor(Column.WHITE); // Column Color
 
         // Column 6 - 5 Black Pieces
         theColumns[6].addPiece(Piece.BLACK_PIECE); theColumns[6].addPiece(Piece.BLACK_PIECE);
         theColumns[6].addPiece(Piece.BLACK_PIECE); theColumns[6].addPiece(Piece.BLACK_PIECE);
         theColumns[6].addPiece(Piece.BLACK_PIECE);
+        theColumns[6].setColumnColor(Column.BLACK); // Column Color
 
         // Column 8 - 3 Black Pieces
-        theColumns[8].addPiece(Piece.BLACK_PIECE); theColumns[6].addPiece(Piece.BLACK_PIECE);
-        theColumns[6].addPiece(Piece.BLACK_PIECE);
+        theColumns[8].addPiece(Piece.BLACK_PIECE); theColumns[8].addPiece(Piece.BLACK_PIECE);
+        theColumns[8].addPiece(Piece.BLACK_PIECE);
+        theColumns[8].setColumnColor(Column.BLACK); // Column Color
 
         // Column 13 - 5 Black Pieces
         theColumns[13].addPiece(Piece.BLACK_PIECE); theColumns[13].addPiece(Piece.BLACK_PIECE);
         theColumns[13].addPiece(Piece.BLACK_PIECE); theColumns[13].addPiece(Piece.BLACK_PIECE);
         theColumns[13].addPiece(Piece.BLACK_PIECE);
+        theColumns[13].setColumnColor(Column.BLACK); // Column Color
 
         // Column 24 - 2 Black Pieces
         theColumns[24].addPiece(Piece.BLACK_PIECE); theColumns[24].addPiece(Piece.BLACK_PIECE);
+        theColumns[24].setColumnColor(Column.BLACK); // Column Color
     }
 
     public void printTheColumns(){
