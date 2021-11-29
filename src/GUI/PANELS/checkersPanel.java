@@ -4,10 +4,8 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 
 import GUI.SPRITES.SpriteSheet;
-import GAME.Board;
-import GAME.Column;
 import GAME.Backgammon;
-import GAME.Piece;
+
 
 public class checkersPanel extends JPanel {
     public static BufferedImage blackChecker, whiteChecker;

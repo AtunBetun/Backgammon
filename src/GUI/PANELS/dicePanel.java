@@ -39,7 +39,7 @@ public class dicePanel extends JPanel{
             diceRolls[1] = roll;
 
             dice2 = ss.getDie(roll);
-            g.drawImage(dice2, 700, h - 25, 60, 60, null);
+            g.drawImage(dice2, 700, h-25, 60, 60, null);
 //            player++;
         }
         else if(Backgammon.theGame.getCurrentTurn() == Game.BLACK_TURN) {
