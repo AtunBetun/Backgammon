@@ -27,7 +27,7 @@ public class moveButton extends JButton {
             public void actionPerformed(ActionEvent e) {
 
                 System.out.printf("Clicked the button %s\n", theColumnNumber);
-                System.out.println("The column contains:");
+                System.out.print("The column contains: ");
                 Backgammon.theBoard.getTheColumns()[theColumnNumber].printTheColumn();
                 System.out.println("");
 
