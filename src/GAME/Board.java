@@ -42,11 +42,11 @@ public class Board {
         return false;
     }
     public void selectBoard(){
-        System.out.println("Board Selected");
+//        System.out.println("Board Selected");
         boardSelected = true;
     }
     public void unselectBoard(){
-        System.out.println("Board Unselected");
+//        System.out.println("Board Unselected");
         boardSelected = false;
     }
     public moveButton[] getTheButtons(){

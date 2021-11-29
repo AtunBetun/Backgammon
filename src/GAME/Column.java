@@ -25,6 +25,11 @@ public class Column {
         pieces.add(theAddedPiece);
     }
 
+    public void removePiece(){
+        int index = pieces.size() - 1;
+        pieces.remove(index);
+    }
+
     public int getColumnColor(){
         return columnColor;
     }
@@ -48,13 +53,13 @@ public class Column {
 
     public void selectColumn(){
         if (!columnSelected){
-            System.out.println("Column Selected");
+//            System.out.println("Column Selected");
             columnSelected = true;
         }
     }
 
     public void unselectColumn(){
-        System.out.println("Column Unselected");
+//        System.out.println("Column Unselected");
         columnSelected = false;
     }
 

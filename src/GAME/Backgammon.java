@@ -38,17 +38,25 @@ public class Backgammon {
 
             while (theGame.getGameState() != END_GAME) {
 
-                theGame.setCurrentTurn(Game.BLACK_TURN); //Set White Turn
+                // White Turn
+                theGame.setCurrentTurn(Game.WHITE_TURN); //Set White Turn
                 theGame.setTurnStatus(Game.INCOMPLETE_TURN); //Set as Incomplete Turn
-                mainFrame.showTurnButtons();
+                //mainFrame.showExistingTurnButtons();
                 while (theGame.getTurnStatus() != Game.COMPLETED_TURN){
-
+                    Thread.sleep(threadSleepTime);
                 }
+                System.out.println("Finished White Turn");
+                theMainFrame.updateTheMainFrame();
 
-
-                // GET WHITE TURN
-                // GET BLACK TURN
-//                theMainFrame.repaint();
+                // Black Turn
+                theGame.setCurrentTurn(Game.BLACK_TURN); //Set Black Turn
+                theGame.setTurnStatus(Game.INCOMPLETE_TURN); //Set as Incomplete Turn
+                //mainFrame.showExistingTurnButtons();
+                while (theGame.getTurnStatus() != Game.COMPLETED_TURN){
+                    Thread.sleep(threadSleepTime);
+                }
+                System.out.println("Finished Black Turn");
+                theMainFrame.updateTheMainFrame();
 
             }
 
@@ -56,6 +64,7 @@ public class Backgammon {
     }
 
     public static void startGame() {
+
         theGame = new Game();
         theBoard = new Board();
 

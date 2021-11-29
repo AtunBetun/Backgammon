@@ -32,6 +32,16 @@ public class mainFrame extends JFrame{
 
     }
 
+    public void updateTheMainFrame(){
+        this.repaint();
+        this.revalidate();
+        this.validate();
+    }
+
+    public checkersPanel getTheCheckerPanel(){
+        return theCheckerPanel;
+    }
+
     public boardPanel getTheBoardPanel(){
         return theBoardPanel;
     }
@@ -89,7 +99,7 @@ public class mainFrame extends JFrame{
             Backgammon.theMainFrame.setVisible(true);
     }
 
-    public static void showTurnButtons(){
+    public static void showExistingTurnButtons(){
         System.out.println("Checking the turnButtons");
         if (Backgammon.theGame.getCurrentTurn() == Game.WHITE_TURN){
             for (int i = 1; i < 25; i++){
