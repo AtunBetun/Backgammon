@@ -9,17 +9,30 @@ public class Board {
     private moveButton[] theButtons;
 
     private boolean boardSelected;
+    private int selectedColumn;
 
     private int[] diceRoll;
     private int[] doubleRoll;
+
+    public static final int NO_COLUMN_SELECTED = 100;
 
     public Board(){
         theColumns = new Column[26];
         theButtons = new moveButton[26];
 
+        setTheSelectedColumn(NO_COLUMN_SELECTED);
+
         initializeButtons();
         initializeColumns(); // Initialize the columns
         addStartingPieces(); // addTheStartingPieces to the Board
+    }
+
+    public void setTheSelectedColumn(int theSelectedColumn){
+        selectedColumn = theSelectedColumn;
+    }
+
+    public int getSelectedColumn(){
+        return selectedColumn;
     }
 
     public boolean isBoardSelected(){
@@ -29,9 +42,11 @@ public class Board {
         return false;
     }
     public void selectBoard(){
+        System.out.println("Board Selected");
         boardSelected = true;
     }
     public void unselectBoard(){
+        System.out.println("Board Unselected");
         boardSelected = false;
     }
     public moveButton[] getTheButtons(){
