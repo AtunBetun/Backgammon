@@ -5,6 +5,7 @@ import GUI.PANELS.dicePanel;
 import GUI.PANELS.moveButton;
 import GUI.PANELS.welcomePanel;
 import GUI.PANELS.boardPanel;
+import GUI.PANELS.checkersPanel;
 
 import javax.swing.*;
 import java.awt.*;
@@ -12,6 +13,7 @@ import java.awt.*;
 public class mainFrame extends JFrame{
     private static boardPanel theBoardPanel;
     private static dicePanel theDicePanel;
+    private static checkersPanel theCheckerPanel;
 
     public mainFrame(){
         super("Backgammon");
@@ -72,6 +74,16 @@ public class mainFrame extends JFrame{
         Backgammon.theMainFrame.setVisible(true);
 
 
+    }
+
+    public static void placeCheckers()
+    {
+            theCheckerPanel = new checkersPanel();
+            Backgammon.theMainFrame.getContentPane().add(theCheckerPanel);
+            theCheckerPanel.repaint();
+
+            Backgammon.theMainFrame.repaint();
+            Backgammon.theMainFrame.setVisible(true);
     }
 
 }

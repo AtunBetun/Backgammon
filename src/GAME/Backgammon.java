@@ -57,6 +57,7 @@ public class Backgammon {
 
         mainFrame.clearTheMainFramePanels(); // Clear the JPanels on the mainFrame
         mainFrame.showDice();  // New Line added
+        mainFrame.placeCheckers();
         mainFrame.createEmptyBoardScreen(); // add the board JPanel to the mainFrame
     }
 }
