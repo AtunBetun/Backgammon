@@ -22,13 +22,13 @@ public class finalPieces extends JPanel{
     {
         int w = this.getWidth() / 2;
         int h = this.getHeight();
-        int num = Backgammon.theBoard.getBlackMiddleColumn().getPieceCount();
+        int num = Backgammon.theBoard.getBlackScoreColumn().getPieceCount();
         for(int i = 0; i < num; i++)
         {
             g.drawImage(blackFinal, w, h,40,20,null);
             h = h - 20;
         }
-        num = Backgammon.theBoard.getWhiteMiddleColumn().getPieceCount();
+        num = Backgammon.theBoard.getWhiteScoreColumn().getPieceCount();
         h = 0;
         for(int i = 0; i < num; i++)
         {
