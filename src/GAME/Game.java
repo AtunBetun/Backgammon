@@ -12,8 +12,8 @@ public class Game {
     private boolean hasStarted;
     private int turnStatus;
 
-    private int whiteScore;
-    private int blackScore;
+    private static int whiteScore;
+    private static int blackScore;
 
     // Default Constructor for Game()
     public Game() {
@@ -24,20 +24,20 @@ public class Game {
         setHasStarted(Backgammon.GAME_HAS_NOT_STARTED);
     }
 
-    public int getWhiteScore(){
+    public static int getWhiteScore(){
         return whiteScore;
     }
-    public void increaseWhiteScore(){
+    public static void increaseWhiteScore(){
         whiteScore++;
     }
     public void decreaseWhiteScore(){
         whiteScore--;
     }
 
-    public int getBlackScore(){
+    public static int getBlackScore(){
         return blackScore;
     }
-    public void increaseBlackScore(){
+    public static void increaseBlackScore(){
         blackScore++;
     }
     public void decreaseBlackScore(){

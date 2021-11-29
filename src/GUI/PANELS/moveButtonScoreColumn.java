@@ -1,6 +1,6 @@
 package GUI.PANELS;
 import GAME.Column;
-import GAME.Backgammon;
+import GAME.Game;
 import GAME.Piece;
 
 import javax.swing.*;
@@ -38,14 +38,17 @@ public class moveButtonScoreColumn extends JButton {
                // System.out.printf("Score Button %s\n", buttonName);
                 if(buttonName == BLACK_SCORE_BUTTON)
                 {
-                    System.out.printf("Black Score Button \n");
-                    Backgammon.theBoard.getBlackScoreColumn().addPiece(Piece.BLACK_PIECE);
+                    //System.out.printf("Black Score Button \n");
+                    Game.increaseBlackScore();
                 }
-                else
+                else if(buttonName == WHITE_SCORE_BUTTON)
                 {
-                    System.out.printf("White Score Button \n");
-                    Backgammon.theBoard.getWhiteScoreColumn().addPiece(Piece.WHITE_PIECE);
+                    //System.out.printf("White Score Button \n");
+                    Game.increaseWhiteScore();
                 }
+                System.out.printf("Black Score: %d \n", Game.getBlackScore());
+                System.out.printf("White Score: %d \n",Game.getWhiteScore());
+                System.out.printf("\n");
 
             }
         });
