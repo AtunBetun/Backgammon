@@ -8,7 +8,7 @@ public class Board {
     private Column[] theColumns;
     private Column blackMiddleColumn;
     private Column whiteMiddleColumn;
-    private Column whiteScoreColumn, blackScoreColumn;
+
     private moveButton[] theButtons;
     private moveButtonMiddleColumn blackMiddleButton;
     private moveButtonMiddleColumn whiteMiddleButton;
@@ -73,8 +73,7 @@ public class Board {
     public Column[] getTheColumns(){
         return theColumns;
     }
-    public Column getBlackScoreColumn(){return blackScoreColumn;}
-    public Column getWhiteScoreColumn(){return whiteScoreColumn; }
+
     public void initializeColumns(){
         // Populate the 26 columns with the columns Object
         for(int i = 0; i < theColumns.length; i++){
@@ -83,8 +82,6 @@ public class Board {
 
         blackMiddleColumn = new Column(); // Empty black Middle Column
         whiteMiddleColumn = new Column(); // Emppty white Middle Column
-        blackScoreColumn = new Column();    //Score column
-        whiteScoreColumn = new Column(); // Score column
     }
     public void addStartingPieces() {
 
