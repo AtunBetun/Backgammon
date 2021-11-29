@@ -4,10 +4,14 @@ public class Game {
 
     public static final int WHITE_TURN = 1;
     public static final int BLACK_TURN = -1;
+    public static final int COMPLETED_TURN = 1;
+    public static final int INCOMPLETE_TURN = -1;
+
 
     private int gameState;
     private int currentTurn;
     private boolean hasStarted;
+    private int turnStatus;
 
     // Default Constructor for Game()
     public Game() {
@@ -37,6 +41,14 @@ public class Game {
     }
     public int getCurrentTurn(){
         return currentTurn;
+    }
+
+    public void setTurnStatus(int theTurnStatus){
+        turnStatus = theTurnStatus;
+    }
+    public int getTurnStatus(){
+        return turnStatus;
+
     }
 
 }
