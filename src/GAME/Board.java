@@ -1,12 +1,15 @@
 package GAME;
 
 import GUI.PANELS.moveButton;
+import GUI.PANELS.moveButtonMiddleColumn;
 
 public class Board {
     private Column[] theColumns;
     private Column blackMiddleColumn;
     private Column whiteMiddleColumn;
     private moveButton[] theButtons;
+    private moveButtonMiddleColumn blackMiddleButton;
+    private moveButtonMiddleColumn whiteMiddleButton;
 
     private boolean boardSelected;
     private int selectedColumn;
@@ -49,22 +52,17 @@ public class Board {
 //        System.out.println("Board Unselected");
         boardSelected = false;
     }
-    public moveButton[] getTheButtons(){
-        return theButtons;
-    }
+
 
     public int[] getDiceRoll(){
         return diceRoll;
     }
-
     public void setDiceRoll(int[] theDiceRoll){
         diceRoll = theDiceRoll;
     }
-
     public int[] getDoubleRoll(){
         return doubleRoll;
     }
-
     public void setDoubleRoll(int[] theDoubleRoll){
         diceRoll = theDoubleRoll;
     }
@@ -72,7 +70,6 @@ public class Board {
     public Column[] getTheColumns(){
         return theColumns;
     }
-
     public void initializeColumns(){
         // Populate the 26 columns with the columns Object
         for(int i = 0; i < theColumns.length; i++){
@@ -82,7 +79,6 @@ public class Board {
         blackMiddleColumn = new Column(); // Empty black Middle Column
         whiteMiddleColumn = new Column(); // Emppty white Middle Column
     }
-
     public void addStartingPieces() {
 
         // Column 1 - 2 White Pieces
@@ -131,7 +127,6 @@ public class Board {
         blackMiddleColumn.setColumnColor(Column.BLACK);
         whiteMiddleColumn.setColumnColor(Column.WHITE);
     }
-
     public void printTheColumns(){
         for (int i = 1; i < theColumns.length - 1; i++){
             System.out.print("Column " + i + ": ");
@@ -140,10 +135,21 @@ public class Board {
         }
     }
 
+    public moveButton[] getTheButtons(){
+        return theButtons;
+    }
     public void initializeButtons(){
         for(int i = 0; i < theButtons.length; i++){
             theButtons[i] = new moveButton(i);
         }
+        blackMiddleButton = new moveButtonMiddleColumn(moveButtonMiddleColumn.BLACK_MIDDLE_BUTTON);
+        whiteMiddleButton = new moveButtonMiddleColumn(moveButtonMiddleColumn.WHITE_MIDDLE_BUTTON);
+    }
+    public moveButtonMiddleColumn getBlackMiddleButton(){
+        return blackMiddleButton;
+    }
+    public moveButtonMiddleColumn getWhiteMiddleButton(){
+        return whiteMiddleButton;
     }
 
 }
