@@ -35,11 +35,6 @@ public class moveButton extends JButton {
                 }
 
                 System.out.printf("\nButton %s\n", theColumnNumber);
-//                System.out.printf("Selected: %s\n", !Backgammon.theBoard.getTheColumns()[theColumnNumber].isSelected());
-
-//                System.out.print("contains: ");
-//                Backgammon.theBoard.getTheColumns()[theColumnNumber].printTheColumn();
-//                System.out.println(" ");
 
                 // Select a column
                 if (!Backgammon.theBoard.isBoardSelected() // Check that the board is NOT Selected

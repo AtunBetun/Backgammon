@@ -78,6 +78,9 @@ public class Board {
         for(int i = 0; i < theColumns.length; i++){
             theColumns[i] = new Column();
         }
+
+        blackMiddleColumn = new Column(); // Empty black Middle Column
+        whiteMiddleColumn = new Column(); // Emppty white Middle Column
     }
 
     public void addStartingPieces() {
@@ -124,6 +127,9 @@ public class Board {
         // Column 24 - 2 Black Pieces
         theColumns[24].addPiece(Piece.BLACK_PIECE); theColumns[24].addPiece(Piece.BLACK_PIECE);
         theColumns[24].setColumnColor(Column.BLACK); // Column Color
+
+        blackMiddleColumn.setColumnColor(Column.BLACK);
+        whiteMiddleColumn.setColumnColor(Column.WHITE);
     }
 
     public void printTheColumns(){

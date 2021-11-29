@@ -89,8 +89,7 @@ public class mainFrame extends JFrame{
 
     }
 
-    public static void placeCheckers()
-    {
+    public static void placeCheckers() {
             theCheckerPanel = new checkersPanel();
             Backgammon.theMainFrame.getContentPane().add(theCheckerPanel);
             theCheckerPanel.repaint();
