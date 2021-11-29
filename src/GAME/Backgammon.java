@@ -45,6 +45,7 @@ public class Backgammon {
 
                 }
 
+
                 // GET WHITE TURN
                 // GET BLACK TURN
 //                theMainFrame.repaint();
