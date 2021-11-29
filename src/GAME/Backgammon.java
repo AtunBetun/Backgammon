@@ -37,6 +37,12 @@ public class Backgammon {
             }
 //            System.out.println("Game Started!");
             while (theGame.getGameState() != END_GAME) {
+
+                theGame.setCurrentTurn(theGame.WHITE_TURN);
+
+
+
+
                 // GET WHITE TURN
                 // GET BLACK TURN
 //                theMainFrame.repaint();
