@@ -5,12 +5,12 @@ import java.util.ArrayList;
 public class Column {
     public static final int BLACK = -1;
     public static final int WHITE = 1;
+    public static final int EMPTY = 0;
 
     private boolean columnSelected;
     private int columnColor;
     private int pieceCount;
     ArrayList<Piece> pieces;
-
     private Moves columnMoves;
 
     // Default Constructor for Column()
