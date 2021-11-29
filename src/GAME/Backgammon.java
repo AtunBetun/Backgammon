@@ -38,7 +38,7 @@ public class Backgammon {
 
             while (theGame.getGameState() != END_GAME) {
 
-                theGame.setCurrentTurn(Game.WHITE_TURN); //Set White Turn
+                theGame.setCurrentTurn(Game.BLACK_TURN); //Set White Turn
                 theGame.setTurnStatus(Game.INCOMPLETE_TURN); //Set as Incomplete Turn
                 mainFrame.showTurnButtons();
                 while (theGame.getTurnStatus() != Game.COMPLETED_TURN){
@@ -56,11 +56,12 @@ public class Backgammon {
 
     public static void startGame() {
         theGame = new Game();
+        theBoard = new Board();
+
         theGame.setGameState(START_GAME);
         theGame.setHasStarted(GAME_HAS_STARTED);
         theGame.setCurrentTurn(Game.WHITE_TURN);
 
-        theBoard = new Board();
         theBoard.printTheColumns();
 
         mainFrame.clearTheMainFramePanels(); // Clear the JPanels on the mainFrame

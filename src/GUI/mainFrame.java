@@ -8,6 +8,7 @@ import GUI.PANELS.moveButton;
 import GUI.PANELS.welcomePanel;
 import GUI.PANELS.boardPanel;
 
+import javax.sound.midi.SysexMessage;
 import javax.swing.*;
 import java.awt.*;
 
@@ -77,13 +78,22 @@ public class mainFrame extends JFrame{
     }
 
     public static void showTurnButtons(){
+        System.out.println("Checking the turnButtons");
         if (Backgammon.theGame.getCurrentTurn() == Game.WHITE_TURN){
-            for (int i = 1; i <= 24; i++){
+            for (int i = 1; i < 25; i++){
+
+                System.out.printf("Loop %s: ", i);
+                Backgammon.theBoard.getTheColumns()[i].printTheColumn();
+                System.out.println(" ");
+
                 if (Backgammon.theBoard.getTheColumns()[i].getPieceCount() > 0 // If Piece Count > 0
                         && Backgammon.theBoard.getTheColumns()[i].getColumnColor() == Column.WHITE){ // Column Color is white
+                    System.out.printf("Column %s - Visible\n\n", i);
+
                     Backgammon.theBoard.getTheButtons()[i].setVisible(true); // Make the Button Visible
                 }
                 else{
+                    System.out.printf("Column %s - Invisible\n\n", i);
                     Backgammon.theBoard.getTheButtons()[i].setVisible(false); // Make the Button Invisible
                 }
             }
@@ -91,11 +101,21 @@ public class mainFrame extends JFrame{
 
         if (Backgammon.theGame.getCurrentTurn() == Game.BLACK_TURN){
             for (int i = 1; i <= 24; i++){
+
+                System.out.printf("Loop %s: ", i);
+                Backgammon.theBoard.getTheColumns()[i].printTheColumn();
+                System.out.println(" ");
+
                 if (Backgammon.theBoard.getTheColumns()[i].getPieceCount() > 0 // If Piece Count > 0
                         && Backgammon.theBoard.getTheColumns()[i].getColumnColor() == Column.BLACK){ // Column Color is white
+                    System.out.printf("Column %s - Visible\n\n", i);
+
                     Backgammon.theBoard.getTheButtons()[i].setVisible(true); // Make the Button Visible
+
                 }
                 else{
+                    System.out.printf("Column %s - Invisible\n\n", i);
+
                     Backgammon.theBoard.getTheButtons()[i].setVisible(false); // Make the Button Invisible
                 }
             }
