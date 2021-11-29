@@ -81,9 +81,9 @@ public class mainFrame extends JFrame{
 
         if (Backgammon.theGame.getCurrentTurn() == Game.WHITE_TURN){
             for (int i = 1; i < 24; i++){
-//                if (theLocalColumns[i].getPieceCount() > 0 && theLocalColumns[i].){
-//
-//                }
+                if (theLocalColumns[i].getPieceCount() > 0 && theLocalColumns[i].){
+
+                }
 
 
             }
