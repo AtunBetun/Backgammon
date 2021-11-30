@@ -76,4 +76,66 @@ public class Game {
 
     }
 
+    public void gameComputePossibleMoves(){
+
+        boolean playerHasPossibleTurn = false;
+        gameClearPossibleMoves(); // Clean the possible moves for computation
+
+        System.out.println("\n\n## Computing the possible Moves ##\n");
+        if (Backgammon.theGame.getCurrentTurn() == Game.WHITE_TURN){
+
+            System.out.println("# Computing WHITE #");
+            for (int i = 1; i <= 24; i++){
+
+                // Compute the column possible mvoes of a non empty column that is the turn's color
+                if (Backgammon.theBoard.getTheColumns()[i].pieces.size() > 0
+                    && Backgammon.theBoard.getTheColumns()[i].getColumnColor() == Column.WHITE){
+                    System.out.printf("\nColumn %s\n", i);
+
+                    Backgammon.theBoard.getTheColumns()[i].columnComputePossibleMoves(i);
+
+                    if (Backgammon.theBoard.getTheColumns()[i].columnGetPlayerHasPossibleTurn()){
+                        playerHasPossibleTurn = true;
+                    }
+
+                }
+
+            }
+
+            // If there are no available moves then the turn is complete
+            if (!playerHasPossibleTurn){
+                Backgammon.theGame.setTurnStatus(COMPLETED_TURN);
+            }
+
+        }
+
+        else if (Backgammon.theGame.getCurrentTurn() == Game.BLACK_TURN){
+            System.out.println("# Computing BLACK #");
+            for (int i = 1; i <= 24; i++){
+                // Compute the column possible mvoes of a non empty column that is the turn's color
+                if (Backgammon.theBoard.getTheColumns()[i].pieces.size() > 0
+                    && Backgammon.theBoard.getTheColumns()[i].getColumnColor() == Column.BLACK){
+                    System.out.printf("\nColumn %s\n", i);
+
+                    Backgammon.theBoard.getTheColumns()[i].columnComputePossibleMoves(i);
+
+                    if (Backgammon.theBoard.getTheColumns()[i].columnGetPlayerHasPossibleTurn()){
+                        playerHasPossibleTurn = true;
+                    }
+                }
+            }
+
+            if (!playerHasPossibleTurn){
+                Backgammon.theGame.setTurnStatus(COMPLETED_TURN);
+            }
+        }
+
+    }
+    public void gameClearPossibleMoves(){
+        System.out.println("\n# GAME CLEARING POSSIBLE MOVES #");
+        for (int i = 1; i <= 24; i++) {
+            Backgammon.theBoard.getTheColumns()[i].columnClearPossibleMoves(i);
+        }
+    }
+
 }

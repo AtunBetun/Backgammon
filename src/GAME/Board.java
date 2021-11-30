@@ -4,6 +4,8 @@ import GUI.PANELS.moveButton;
 import GUI.PANELS.moveButtonMiddleColumn;
 import GUI.PANELS.moveButtonScoreColumn;
 
+import java.util.Random;
+
 public class Board {
     private Column[] theColumns;
     private Column blackMiddleColumn;
@@ -17,6 +19,7 @@ public class Board {
     private boolean boardSelected;
     private int selectedColumn;
 
+    private Random randObject;
     private int[] diceRoll;
     private int[] doubleRoll;
 
@@ -25,6 +28,11 @@ public class Board {
     public Board(){
         theColumns = new Column[26];
         theButtons = new moveButton[26];
+        diceRoll = new int[2];
+        randObject = new Random();
+        blackMiddleColumn = new Column();
+        whiteMiddleColumn = new Column();
+
 
         setTheSelectedColumn(NO_COLUMN_SELECTED);
 
@@ -36,7 +44,6 @@ public class Board {
     public void setTheSelectedColumn(int theSelectedColumn){
         selectedColumn = theSelectedColumn;
     }
-
     public int getSelectedColumn(){
         return selectedColumn;
     }
@@ -56,13 +63,30 @@ public class Board {
         boardSelected = false;
     }
 
-
     public int[] getDiceRoll(){
         return diceRoll;
     }
-    public void setDiceRoll(int[] theDiceRoll){
+    public void setDiceRollArray(int[] theDiceRoll){
         diceRoll = theDiceRoll;
     }
+    public void rollTheDice(){
+        diceRoll[0] = randObject.nextInt(1, 7);
+        diceRoll[1] = randObject.nextInt(1,7);
+
+        // No Doubles for now
+        while(diceRoll[0] == diceRoll[1]){
+            diceRoll[1] = randObject.nextInt(1,7);
+        }
+
+        System.out.printf("\n\n## DICE ROLL dice1: %s  dice2: %s ##\n\n", diceRoll[0], diceRoll[1]);
+    }
+    public void setFirstDiceRoll(int firstDiceRoll){
+        diceRoll[0] = firstDiceRoll;
+    }
+    public void setSecondDiceRoll(int secondDiceRoll){
+        diceRoll[1] = secondDiceRoll;
+    }
+
     public int[] getDoubleRoll(){
         return doubleRoll;
     }
@@ -70,6 +94,29 @@ public class Board {
         diceRoll = theDoubleRoll;
     }
 
+    public Column getBlackMiddleColumn(){
+        return blackMiddleColumn;
+    }
+    public Column getWhiteMiddleColumn(){
+        return whiteMiddleColumn;
+    }
+
+
+    public void printTheColumns(){
+        for (int i = 1; i < theColumns.length - 1; i++){
+            System.out.print("Column " + i + ": ");
+            theColumns[i].printTheColumn();
+            System.out.println();
+        }
+
+        System.out.print("BlackMiddleColumn: ");
+        blackMiddleColumn.printTheColumn();
+        System.out.println();
+
+        System.out.print("WhiteMiddleColumn: ");
+        whiteMiddleColumn.printTheColumn();
+        System.out.println();
+    }
     public Column[] getTheColumns(){
         return theColumns;
     }
@@ -91,6 +138,13 @@ public class Board {
         // Column 1 - 2 White Pieces
         theColumns[1].addPiece(Piece.WHITE_PIECE); theColumns[1].addPiece(Piece.WHITE_PIECE);
         theColumns[1].setColumnColor(Column.WHITE); // Column Color
+
+        // Set empty columns 2
+//        theColumns[2].setColumnColor(Column.EMPTY); theColumns[3].setColumnColor(Column.EMPTY);
+//        theColumns[4].setColumnColor(Column.EMPTY); theColumns[5].setColumnColor(Column.EMPTY);
+//        theColumns[6].setColumnColor(Column.EMPTY); theColumns[7].setColumnColor(Column.EMPTY);
+//        theColumns[8].setColumnColor(Column.EMPTY); theColumns[3].setColumnColor(Column.EMPTY);
+//        theColumns[9].setColumnColor(Column.EMPTY);
 
 
         // Column 12 - 5 White Pieces
@@ -133,13 +187,6 @@ public class Board {
 
         blackMiddleColumn.setColumnColor(Column.BLACK);
         whiteMiddleColumn.setColumnColor(Column.WHITE);
-    }
-    public void printTheColumns(){
-        for (int i = 1; i < theColumns.length - 1; i++){
-            System.out.print("Column " + i + ": ");
-            theColumns[i].printTheColumn();
-            System.out.println();
-        }
     }
 
     public moveButton[] getTheButtons(){
