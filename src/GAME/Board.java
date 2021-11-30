@@ -136,14 +136,6 @@ public class Board {
         theColumns[1].addPiece(Piece.WHITE_PIECE); theColumns[1].addPiece(Piece.WHITE_PIECE);
         theColumns[1].setColumnColor(Column.WHITE); // Column Color
 
-        // Set empty columns 2
-//        theColumns[2].setColumnColor(Column.EMPTY); theColumns[3].setColumnColor(Column.EMPTY);
-//        theColumns[4].setColumnColor(Column.EMPTY); theColumns[5].setColumnColor(Column.EMPTY);
-//        theColumns[6].setColumnColor(Column.EMPTY); theColumns[7].setColumnColor(Column.EMPTY);
-//        theColumns[8].setColumnColor(Column.EMPTY); theColumns[3].setColumnColor(Column.EMPTY);
-//        theColumns[9].setColumnColor(Column.EMPTY);
-
-
         // Column 12 - 5 White Pieces
         theColumns[12].addPiece(Piece.WHITE_PIECE); theColumns[12].addPiece(Piece.WHITE_PIECE);
         theColumns[12].addPiece(Piece.WHITE_PIECE); theColumns[12].addPiece(Piece.WHITE_PIECE);

@@ -102,6 +102,14 @@ public class Game {
 
             }
 
+            if (Backgammon.theBoard.getWhiteMiddleColumn().pieces.size() > 0){
+                // Set all of the buttons to unvisible first
+                // Check on the dices which buttons must be turned on for the gettingOfMiddleColumn()
+                //
+
+            }
+
+
             // If there are no available moves then the turn is complete
             if (!playerHasPossibleTurn){
                 Backgammon.theGame.setTurnStatus(COMPLETED_TURN);
