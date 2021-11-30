@@ -23,13 +23,13 @@ public class finalPieces extends JPanel{
     {
         int w = (this.getWidth() / 2) - 10;
         int h = 0;
-        int num = Game.getBlackScore();
+        int num = Game.getWhiteScore();
         for(int i = 0; i < num; i++)
         {
             g.drawImage(blackFinal, w, h,40,15,null);
             h = h + 15;
         }
-        num = Game.getWhiteScore();
+        num = Game.getBlackScore();
         h = this.getHeight() - 15;
         for(int i = 0; i < num; i++)
         {
