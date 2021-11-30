@@ -14,9 +14,11 @@ public class Moves {
     public static final boolean POSSIBLE_MOVE = true;
     public static final boolean INVALID_MOVE = false;
 
+    private int[] bearOffDice;
     private int[] diceForMove;
     private boolean[] possibleMoves;
     private boolean[] capturePieces;
+
 
     private boolean playerHasPossibleTurn;
     private boolean whiteBearOff;
@@ -24,6 +26,7 @@ public class Moves {
     private boolean canBearOff;
 
     public Moves(){
+        bearOffDice = new int[2];
         diceForMove = new int[26];
         possibleMoves = new boolean[26];
         capturePieces = new boolean[26];
@@ -69,8 +72,10 @@ public class Moves {
 
     public void clearPossibleMoves(){
         Arrays.fill(possibleMoves, INVALID_MOVE);
-        Arrays.fill(diceForMove, EMPTY);
         Arrays.fill(capturePieces, INVALID_MOVE);
+        Arrays.fill(diceForMove, EMPTY);
+        Arrays.fill(bearOffDice, EMPTY);
+
         playerHasPossibleTurn = false;
         whiteBearOff = false;
         blackBearOff = false;
@@ -196,6 +201,7 @@ public class Moves {
         return true;
     }
     public void checkIfBearOffPossible(int GameTurn, int columnNumber){
+        // White turn
         if (GameTurn == Game.WHITE_TURN){
             int homeBaseChipSize =  theBoard.getTheColumns()[19].pieces.size() +
                                     theBoard.getTheColumns()[20].pieces.size() +
@@ -208,10 +214,12 @@ public class Moves {
                 whiteBearOff = true;
             }
 
+            // If white bear off is possible then check this piece for bear off
             if (whiteBearOff){
                 // Clean First Dice Bear Off
                 if (theBoard.getDiceRoll()[0] == 24 - columnNumber){
                     canBearOff = true;
+
                 }
 
                 // Clean Second Dice Bear Off
@@ -242,9 +250,9 @@ public class Moves {
 
             }
 
-
         }
 
+        // Black turn
         else if (GameTurn == Game.BLACK_TURN){
             int homeBaseChipSize =  theBoard.getTheColumns()[1].pieces.size() +
                                     theBoard.getTheColumns()[2].pieces.size() +
@@ -252,10 +260,62 @@ public class Moves {
                                     theBoard.getTheColumns()[4].pieces.size() +
                                     theBoard.getTheColumns()[5].pieces.size() +
                                     theBoard.getTheColumns()[6].pieces.size();
-
+            // If Black Bear off is possible then check this piece for bear off
             if (homeBaseChipSize == 15 && !whiteBearOff){
                 blackBearOff = true;
             }
+
+            if (blackBearOff){
+                // Clean First Dice Bear Off
+                if (theBoard.getDiceRoll()[0] == columnNumber){
+                    canBearOff = true;
+                    bearOffDice[0] = FIRST_DICE;
+                }
+
+                // Clean Second Dice Bear Off
+                else if (theBoard.getDiceRoll()[1] == columnNumber){
+                    canBearOff = true;
+                    bearOffDice[1] = SECOND_DICE;
+                }
+
+//                // A higher number was rolled
+                else {
+                    // BiggestDiceRoll from the current turn
+                    int biggestDiceRoll = Math.max(theBoard.getDiceRoll()[0], theBoard.getDiceRoll()[1]);
+
+                    boolean dirtyBearOff = true;
+                    // Check if the dice rolled bigger than this particular column
+
+//                    dice roll: 6      column: 4
+//                    columnDifference: 2
+//                    Following will check columns 6 and 5 on this example
+                    int columnDifference = biggestDiceRoll - columnNumber;
+                    int indexCounter = 6;
+                    if (biggestDiceRoll > columnNumber){
+                        for (int y = 1; y <= columnDifference; y++){
+                            if (theBoard.getTheColumns()[indexCounter].pieces.size() != 0){
+                                dirtyBearOff = false;
+                            }
+                            indexCounter--;
+                        }
+                    }
+
+                    if (dirtyBearOff){
+                        canBearOff = true;
+                        if (biggestDiceRoll == theBoard.getDiceRoll()[0]){
+                            bearOffDice[0] = FIRST_DICE;
+                        }
+                        else{
+                            bearOffDice[1] = SECOND_DICE;
+                        }
+
+                    }
+
+                }
+
+            }
+
+
         }
 
     }
