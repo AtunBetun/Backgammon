@@ -35,15 +35,12 @@ public class moveButtonScoreColumn extends JButton {
         this.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-               // System.out.printf("Score Button %s\n", buttonName);
                 if(buttonName == BLACK_SCORE_BUTTON)
                 {
-                    //System.out.printf("Black Score Button \n");
                     Game.increaseBlackScore();
                 }
                 else if(buttonName == WHITE_SCORE_BUTTON)
                 {
-                    //System.out.printf("White Score Button \n");
                     Game.increaseWhiteScore();
                 }
                 System.out.printf("Black Score: %d \n", Game.getBlackScore());
