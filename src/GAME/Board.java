@@ -105,6 +105,14 @@ public class Board {
             theColumns[i].printTheColumn();
             System.out.println();
         }
+
+        System.out.print("BlackMiddleColumn: ");
+        blackMiddleColumn.printTheColumn();
+        System.out.println();
+
+        System.out.print("WhiteMiddleColumn: ");
+        whiteMiddleColumn.printTheColumn();
+        System.out.println();
     }
     public Column[] getTheColumns(){
         return theColumns;

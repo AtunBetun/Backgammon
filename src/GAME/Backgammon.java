@@ -51,6 +51,9 @@ public class Backgammon {
                 while (theGame.getTurnStatus() != Game.COMPLETED_TURN){
                     Thread.sleep(threadSleepTime);
                 }
+
+                theBoard.printTheColumns();
+
                 System.out.println("Finished White Turn");
 
                 theBoard.rollTheDice();
