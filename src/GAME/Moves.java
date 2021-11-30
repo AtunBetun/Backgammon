@@ -27,6 +27,9 @@ public class Moves {
         clearPossibleMoves();
     }
 
+    public boolean getPlayerHasPossibleTurn(){
+        return playerHasPossibleTurn;
+    }
     public int[] getDiceForMove(){
         return diceForMove;
     }
@@ -37,7 +40,6 @@ public class Moves {
         return capturePieces;
     }
 
-
     public void setPossibleMove(int index){
         possibleMoves[index] = true;
     }
@@ -47,7 +49,6 @@ public class Moves {
         }
         return false;
     }
-
     public void printPossibleMoves(){
         for (int i = 0; i < 26; i++){
             System.out.printf("Column %s: ## possibleMove: %s   ## capturePieces: %s    ## diceForMove: %s\n",
@@ -81,6 +82,7 @@ public class Moves {
             secondDiceIndex = columnNumber + theBoard.getDiceRoll()[1];
             combinedDiceIndex = columnNumber + theBoard.getDiceRoll()[0] + theBoard.getDiceRoll()[1];
 
+
             System.out.printf("Dice 1 Index: %s    Dice 2 Index: %s     CombinedDice Index: %s\n", firstDiceIndex, secondDiceIndex, combinedDiceIndex);
 
             firstDicePossible = isIndexPossible(firstDiceIndex);
@@ -99,7 +101,7 @@ public class Moves {
 
             // ## COMBINED DICE ## (ONLY ON THE INITIAL DICE ROLL)
             if (combinedDicePossible && theBoard.getDiceRoll()[0] != 0 && theBoard.getDiceRoll()[1] != 0){
-                computeDiceIndexPossibleMoves(combinedDiceIndex, Column.WHITE, SECOND_DICE);
+                computeDiceIndexPossibleMoves(combinedDiceIndex, Column.WHITE, COMBINED_DICE);
             }
 
         }
@@ -125,7 +127,7 @@ public class Moves {
 
             // ## COMBINED DICE ## (ONLY ON THE INITIAL DICE ROLL)
             if (combinedDicePossible && theBoard.getDiceRoll()[0] != 0 && theBoard.getDiceRoll()[1] != 0){
-                computeDiceIndexPossibleMoves(combinedDiceIndex, Column.BLACK, SECOND_DICE);
+                computeDiceIndexPossibleMoves(combinedDiceIndex, Column.BLACK, COMBINED_DICE);
             }
         }
 
@@ -175,5 +177,6 @@ public class Moves {
         }
         return true;
     }
+
 
 }

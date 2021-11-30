@@ -18,8 +18,9 @@ public class moveButton extends JButton {
 
 
     public moveButton(int columnNumber){
-        this.theColumnNumber = columnNumber;
 
+        // Initial Formatting
+        this.theColumnNumber = columnNumber;
         this.setBackground(Color.LIGHT_GRAY);
         this.setBorder(new LineBorder(Color.WHITE, 1));
         this.setText(String.valueOf(theColumnNumber));
@@ -79,25 +80,25 @@ public class moveButton extends JButton {
 
                     System.out.println("## MOVE EXECUTION ##");
 
-                    Backgammon.theBoard.unselectBoard(); // Unselect the board
-                    Backgammon.theBoard.getTheColumns()[boardSelectedColumn].unselectColumn(); // Unselect original column
-                    Backgammon.theBoard.setTheSelectedColumn(Board.NO_COLUMN_SELECTED); // the Board has no column selected
-
                     consumeDice(); // Consume the dice used for the turn
                     executeTurn(); // Execute the turn
-
 
                     // If both dice have been consumed then finish the turn
                     if (Backgammon.theBoard.getDiceRoll()[0] == 0 && Backgammon.theBoard.getDiceRoll()[1] == 0){
                         Backgammon.theGame.setTurnStatus(Game.COMPLETED_TURN); // Completed Turn
                     }
 
+                    Backgammon.theMainFrame.showExistingTurnButtons(); // Go back to showing the existing turn buttons
+
+                    Backgammon.theBoard.unselectBoard(); // Unselect the board
+                    Backgammon.theBoard.getTheColumns()[boardSelectedColumn].unselectColumn(); // Unselect original column
+                    Backgammon.theBoard.setTheSelectedColumn(Board.NO_COLUMN_SELECTED); // the Board has no column selected
+
+                    Backgammon.theGame.gameComputePossibleMoves(); // Compute the possible moves on the columns
 
                     Backgammon.theMainFrame.updateTheMainFrame();
 
                 }
-
-
 
             }
         });
@@ -116,7 +117,8 @@ public class moveButton extends JButton {
         }
 
         else if (theDiceUsed == Moves.COMBINED_DICE){
-            Backgammon.theBoard.setDiceRollArray(COMBINED_CONSUMED_DICE);
+            Backgammon.theBoard.setFirstDiceRoll(CONSUMED_DICE);
+            Backgammon.theBoard.setSecondDiceRoll(CONSUMED_DICE);
         }
 
     }
@@ -125,17 +127,54 @@ public class moveButton extends JButton {
         int boardSelectedColumn = Backgammon.theBoard.getSelectedColumn();
 
         //Remove piece from the board selected column
-        Backgammon.theBoard.getTheColumns()[boardSelectedColumn].removePiece();
-        Backgammon.theBoard.getTheColumns()[theColumnNumber].addPiece(turnPieceColor); // Add a piece to the selected column
+        Backgammon.theBoard.getTheColumns()[boardSelectedColumn].removePiece(); // Remove the piece from the boardSelectedColumn
+        if (Backgammon.theBoard.getTheColumns()[boardSelectedColumn].getThePieces().size() == 0){
+            Backgammon.theBoard.getTheColumns()[boardSelectedColumn].setColumnColor(Column.EMPTY);
+        }
 
         // Captured Column
         if (Backgammon.theBoard.getTheColumns()[boardSelectedColumn].getCapturePieces()[theColumnNumber]){
             System.out.printf(" ## CAPTURING: %s ----  FROM: %s ##\n", theColumnNumber, boardSelectedColumn);
 
             Backgammon.theBoard.getTheColumns()[theColumnNumber].removePiece(); // Remove the captured piece
-            Backgammon.theBoard.getTheColumns()[theColumnNumber].addPiece(turnPieceColor); // Add a piece from the correct color
-            addPieceToMiddleColumn();
+            Backgammon.theBoard.getTheColumns()[theColumnNumber].addPiece(turnPieceColor); // Add a piece from the new color
+            addPieceToMiddleColumn(); // Add piece to the middle column from the opponent
+
+            // Set the Column Color
+            if (turnPieceColor == Piece.WHITE_PIECE){
+                Backgammon.theBoard.getTheColumns()[theColumnNumber].setColumnColor(Column.WHITE);
+            }
+            else if (turnPieceColor == Piece.BLACK_PIECE){
+                Backgammon.theBoard.getTheColumns()[theColumnNumber].setColumnColor(Column.BLACK);
+            }
+
         }
+
+        // Moving to another column
+        else if(Backgammon.theBoard.getTheColumns()[boardSelectedColumn].getPossibleMoves()[theColumnNumber]){
+            System.out.printf("# MOVING: %s ----  FROM: %s ##\n", theColumnNumber, boardSelectedColumn);
+            // Check if the column to add the pieces is empty
+            if (Backgammon.theBoard.getTheColumns()[theColumnNumber].getColumnColor() == Column.EMPTY
+                && Backgammon.theBoard.getTheColumns()[theColumnNumber].getThePieces().size() == 0){
+
+                System.out.printf("# EMPTY COLUMN: %s -> COLOR:", theColumnNumber);
+
+                // Set the Column color
+                if (turnPieceColor == Piece.WHITE_PIECE){
+                    System.out.print(" WHITE #\n");
+                    Backgammon.theBoard.getTheColumns()[theColumnNumber].setColumnColor(Column.WHITE);
+                }
+                else{
+                    System.out.print(" BLACK #\n");
+                    Backgammon.theBoard.getTheColumns()[theColumnNumber].setColumnColor(Column.BLACK);
+                }
+            }
+
+            // Add the new piece to the column
+            Backgammon.theBoard.getTheColumns()[theColumnNumber].addPiece(turnPieceColor);
+
+        }
+
 
     }
 

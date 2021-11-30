@@ -68,8 +68,15 @@ public class Column {
     }
 
     public void columnComputePossibleMoves(int columnNumber){
-        System.out.printf("# Column Compute on %s #\n", columnNumber);
+        System.out.printf("# COLUMN COMPUTE POSSIBLE MOVES ON %s #\n", columnNumber);
         columnMoves.computeColumnPossibleMoves(columnNumber);
+    }
+    public void columnClearPossibleMoves(int columnNumber){
+        System.out.printf("# COLUMN CLEAR: %s #\n", columnNumber);
+        columnMoves.clearPossibleMoves();
+    }
+    public boolean columnGetPlayerHasPossibleTurn(){
+        return columnMoves.getPlayerHasPossibleTurn();
     }
 
     public int[] getDiceForMove(){
