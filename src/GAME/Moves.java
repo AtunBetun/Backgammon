@@ -216,15 +216,25 @@ public class Moves {
 
             // If white bear off is possible then check this piece for bear off
             if (whiteBearOff){
+                System.out.println("\n # COMPUTING WHITE BEAR OFF #");
+
                 // Clean First Dice Bear Off
                 if (theBoard.getDiceRoll()[0] == 24 - columnNumber){
                     canBearOff = true;
+                    bearOffDice[0] = FIRST_DICE;
+
+                    theGame.setTurnBearOff(Game.CAN_BEAR_OFF);
+                    System.out.println("MUST BEAR OFF CLEAN\n");
 
                 }
 
                 // Clean Second Dice Bear Off
                 else if (theBoard.getDiceRoll()[1] == 24 - columnNumber){
                     canBearOff = true;
+                    bearOffDice[1] = SECOND_DICE;
+
+                    theGame.setTurnBearOff(Game.CAN_BEAR_OFF);
+                    System.out.println("MUST BEAR OFF CLEAN\n");
                 }
 
 //                // A higher number was rolled
@@ -244,6 +254,16 @@ public class Moves {
 
                     if (dirtyBearOff){
                         canBearOff = true;
+                        theGame.setTurnBearOff(Game.CAN_BEAR_OFF);
+                        if (biggestDiceRoll == theBoard.getDiceRoll()[0]){
+                            bearOffDice[0] = FIRST_DICE;
+                            System.out.printf("MUST BEAR OFF DIRTY DICE:%s \n", FIRST_DICE);
+
+                        }
+                        else{
+                            bearOffDice[1] = SECOND_DICE;
+                            System.out.printf("MUST BEAR OFF DIRTY DICE:%s \n", SECOND_DICE);
+                        }
                     }
 
                 }
@@ -266,15 +286,22 @@ public class Moves {
             }
 
             if (blackBearOff){
+                System.out.println("\n # COMPUTING BLACK BEAR OFF #");
+
                 // Clean First Dice Bear Off
                 if (theBoard.getDiceRoll()[0] == columnNumber){
                     canBearOff = true;
+                    theGame.setTurnBearOff(Game.CAN_BEAR_OFF);
+                    System.out.printf("MUST BEAR OFF CLEAN DICE:%s \n", FIRST_DICE);
+
                     bearOffDice[0] = FIRST_DICE;
                 }
 
                 // Clean Second Dice Bear Off
                 else if (theBoard.getDiceRoll()[1] == columnNumber){
                     canBearOff = true;
+                    theGame.setTurnBearOff(Game.CAN_BEAR_OFF);
+                    System.out.printf("MUST BEAR OFF CLEAN DICE:%s \n", SECOND_DICE);
                     bearOffDice[1] = SECOND_DICE;
                 }
 
@@ -302,11 +329,16 @@ public class Moves {
 
                     if (dirtyBearOff){
                         canBearOff = true;
+                        theGame.setTurnBearOff(Game.CAN_BEAR_OFF);
+
                         if (biggestDiceRoll == theBoard.getDiceRoll()[0]){
                             bearOffDice[0] = FIRST_DICE;
+                            System.out.printf("MUST BEAR OFF DIRTY DICE:%s \n", FIRST_DICE);
+
                         }
                         else{
                             bearOffDice[1] = SECOND_DICE;
+                            System.out.printf("MUST BEAR OFF DIRTY DICE:%s \n", SECOND_DICE);
                         }
 
                     }

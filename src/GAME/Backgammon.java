@@ -45,14 +45,14 @@ public class Backgammon {
                 theGame.setCurrentTurn(Game.WHITE_TURN); //Set White Turn
                 theGame.setTurnStatus(Game.INCOMPLETE_TURN); //Set as Incomplete Turn
 
-                theMainFrame.showExistingTurnButtons(); // Show the starting move buttons
                 theGame.gameComputePossibleMoves(); // Compute the possible moves on the columns
+                theMainFrame.showExistingTurnButtons(); // Show the starting move buttons
 
                 while (theGame.getTurnStatus() != Game.COMPLETED_TURN){
                     Thread.sleep(threadSleepTime);
                 }
 
-                theBoard.printTheColumns();
+//                theBoard.printTheColumns();
 
                 System.out.println("Finished White Turn");
 
@@ -63,8 +63,8 @@ public class Backgammon {
                 theGame.setCurrentTurn(Game.BLACK_TURN); //Set Black Turn
                 theGame.setTurnStatus(Game.INCOMPLETE_TURN); //Set as Incomplete Turn
 
-                theMainFrame.showExistingTurnButtons(); // Show the starting move buttons
                 theGame.gameComputePossibleMoves(); // Compute the possible moves on the columns
+                theMainFrame.showExistingTurnButtons(); // Show the starting move buttons
 
                 while (theGame.getTurnStatus() != Game.COMPLETED_TURN){
                     Thread.sleep(threadSleepTime);

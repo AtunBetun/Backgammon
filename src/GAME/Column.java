@@ -72,7 +72,7 @@ public class Column {
         columnMoves.computeColumnPossibleMoves(columnNumber);
     }
     public void columnClearPossibleMoves(int columnNumber){
-        System.out.printf("# COLUMN CLEAR: %s #\n", columnNumber);
+//        System.out.printf("# COLUMN CLEAR: %s #\n", columnNumber);
         columnMoves.clearPossibleMoves();
     }
     public boolean columnGetPlayerHasPossibleTurn(){

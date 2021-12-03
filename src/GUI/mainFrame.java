@@ -140,7 +140,7 @@ public class mainFrame extends JFrame{
 
                 if (Backgammon.theBoard.getTheColumns()[i].getPieceCount() > 0 // If Piece Count > 0
                         && Backgammon.theBoard.getTheColumns()[i].getColumnColor() == Column.BLACK){ // Column Color is white
-                    System.out.printf("Column %s - Visible\n\n", i);
+                    System.out.printf("Column %s - Visible\n", i);
 
                     Backgammon.theBoard.getTheButtons()[i].setVisible(true); // Make the Button Visible
 
@@ -166,7 +166,7 @@ public class mainFrame extends JFrame{
 
             // If the selected column has possible moves or capture pieces then set the button
             if (Backgammon.theBoard.getTheColumns()[selectedColumnIndex].getPossibleMoves()[i]
-                || Backgammon.theBoard.getTheColumns()[i].getCapturePieces()[i]){
+                || Backgammon.theBoard.getTheColumns()[selectedColumnIndex].getCapturePieces()[i]){
                 System.out.printf("Visible %s\n", i);
                 Backgammon.theBoard.getTheButtons()[i].setVisible(true);
             }
@@ -175,8 +175,6 @@ public class mainFrame extends JFrame{
             else{
                 Backgammon.theBoard.getTheButtons()[i].setVisible(false);
             }
-
-
         }
 
         Backgammon.theBoard.getTheButtons()[selectedColumnIndex].setVisible(true);
