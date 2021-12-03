@@ -23,6 +23,8 @@ public class Board {
     private int[] diceRoll;
     private int[] doubleRoll;
 
+    private int hitOffDice;
+
     public static final int NO_COLUMN_SELECTED = 100;
 
     public Board(){
@@ -38,6 +40,13 @@ public class Board {
         initializeButtons();
         initializeColumns(); // Initialize the columns
         addStartingPieces(); // addTheStartingPieces to the Board
+    }
+
+    public void setHitOffDice(int theDice){
+        hitOffDice = theDice;
+    }
+    public int getHitOffDice(){
+        return hitOffDice;
     }
 
     public void setTheSelectedColumn(int theSelectedColumn){

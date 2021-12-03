@@ -36,8 +36,62 @@ public class moveButton extends JButton {
 
                 setThePieceColorForButton();
 
+                if (Backgammon.theGame.getTurnBearOff()){
+
+                }
+
+                else if (Backgammon.theGame.getHitOff()){
+
+                    if (Backgammon.theGame.getCurrentTurn() == Game.WHITE_TURN){
+                        System.out.println("## HITTING OFF WHITE MIDDLE COLUMN ##");
+
+                        if (Backgammon.theBoard.getTheColumns()[theColumnNumber].getThePieces().size() == 0){
+                            Backgammon.theBoard.getTheColumns()[theColumnNumber].setColumnColor(Column.WHITE);
+                        }
+
+                        Backgammon.theBoard.getTheColumns()[theColumnNumber].addPiece(Piece.WHITE_PIECE);
+
+                        Backgammon.theBoard.getWhiteMiddleColumn().removePiece();
+                        consumeHitOffDice();
+
+                        if (Backgammon.theBoard.getWhiteMiddleColumn().getThePieces().size() == 0){
+                            Backgammon.theGame.setHitOff(Game.NO_HIT_OFF);
+                        }
+
+                    }
+
+                    else if (Backgammon.theGame.getCurrentTurn() == Game.BLACK_TURN){
+                        System.out.println("## HITTING OFF BLACK MIDDLE COLUMN ##");
+
+                        if (Backgammon.theBoard.getTheColumns()[theColumnNumber].getThePieces().size() == 0){
+                            Backgammon.theBoard.getTheColumns()[theColumnNumber].setColumnColor(Column.BLACK);
+                        }
+
+                        Backgammon.theBoard.getTheColumns()[theColumnNumber].addPiece(Piece.BLACK_PIECE);
+
+                        Backgammon.theBoard.getBlackMiddleColumn().removePiece();
+                        consumeHitOffDice();
+
+                        if (Backgammon.theBoard.getBlackMiddleColumn().getThePieces().size() == 0){
+                            Backgammon.theGame.setHitOff(Game.NO_HIT_OFF);
+                        }
+
+                    }
+                    Backgammon.theGame.gameComputePossibleMoves();
+                    Backgammon.theMainFrame.showExistingTurnButtons();
+
+                    if (Backgammon.theBoard.getDiceRoll()[0] == CONSUMED_DICE &&
+                        Backgammon.theBoard.getDiceRoll()[1] == CONSUMED_DICE){
+                        Backgammon.theGame.setTurnStatus(Game.COMPLETED_TURN);
+                    }
+
+                    Backgammon.theMainFrame.updateTheMainFrame();
+
+                }
+
+
                 // Select a column
-                if (!Backgammon.theBoard.isBoardSelected() // Check that the board is NOT Selected
+                else if (!Backgammon.theBoard.isBoardSelected() // Check that the board is NOT Selected
                         && !Backgammon.theBoard.getTheColumns()[theColumnNumber].isSelected()  // Check that the column is NOT selected
                         && Backgammon.theBoard.getTheColumns()[theColumnNumber].getPieceCount() > 0){ // Piece count is > 0
 
@@ -104,6 +158,24 @@ public class moveButton extends JButton {
         });
     }
 
+    public void consumeHitOffDice(){
+        int theDice = Backgammon.theBoard.getHitOffDice();
+
+        if (theDice == Moves.FIRST_DICE){
+            Backgammon.theBoard.setFirstDiceRoll(CONSUMED_DICE);
+        }
+
+        else if(theDice == Moves.SECOND_DICE){
+            Backgammon.theBoard.setSecondDiceRoll(CONSUMED_DICE);
+        }
+
+        else if (theDice == Moves.COMBINED_DICE){
+            Backgammon.theBoard.setFirstDiceRoll(CONSUMED_DICE);
+            Backgammon.theBoard.setSecondDiceRoll(CONSUMED_DICE);
+        }
+
+    }
+
     public void consumeDice(){
         int boardSelectedColumn = Backgammon.theBoard.getSelectedColumn();
         int theDiceUsed = Backgammon.theBoard.getTheColumns()[boardSelectedColumn].getDiceForMove()[theColumnNumber];
@@ -128,6 +200,7 @@ public class moveButton extends JButton {
 
         //Remove piece from the board selected column
         Backgammon.theBoard.getTheColumns()[boardSelectedColumn].removePiece(); // Remove the piece from the boardSelectedColumn
+
         if (Backgammon.theBoard.getTheColumns()[boardSelectedColumn].getThePieces().size() == 0){
             Backgammon.theBoard.getTheColumns()[boardSelectedColumn].setColumnColor(Column.EMPTY);
         }

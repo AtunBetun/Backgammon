@@ -138,19 +138,15 @@ public class boardPanel extends JPanel {
 
         Backgammon.theBoard.getBlackMiddleButton().setBounds(600, 480, 35, 20);
         Backgammon.theMainFrame.getTheBoardPanel().add(Backgammon.theBoard.getBlackMiddleButton());
-        Backgammon.theBoard.getBlackMiddleButton().setVisible(true);
 
         Backgammon.theBoard.getWhiteMiddleButton().setBounds(600, 250, 35, 20);
         Backgammon.theMainFrame.getTheBoardPanel().add(Backgammon.theBoard.getWhiteMiddleButton());
-        Backgammon.theBoard.getWhiteMiddleButton().setVisible(true);
 
         Backgammon.theBoard.getBlackScoreButton().setBounds(1150,405, 35, 20);
         Backgammon.theMainFrame.getTheBoardPanel().add(Backgammon.theBoard.getBlackScoreButton());
-        Backgammon.theBoard.getBlackScoreButton().setVisible(true);
 
         Backgammon.theBoard.getWhiteScoreButton().setBounds(1150,325, 35, 20);
         Backgammon.theMainFrame.getTheBoardPanel().add(Backgammon.theBoard.getWhiteScoreButton());
-        Backgammon.theBoard.getWhiteScoreButton().setVisible(true);
     }
 
 

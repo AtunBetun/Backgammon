@@ -6,14 +6,19 @@ public class Game {
     public static final int BLACK_TURN = -1;
     public static final int COMPLETED_TURN = 1;
     public static final int INCOMPLETE_TURN = -1;
+
     public static final boolean CAN_BEAR_OFF = true;
     public static final boolean NO_BEAR_OFF = false;
+
+    public static final boolean CAN_HIT_OFF = true;
+    public static final boolean NO_HIT_OFF = false;
 
     private int gameState;
     private int currentTurn;
     private boolean hasStarted;
     private int turnStatus;
     private boolean turnBearOff;
+    private boolean hitOff;
 
     private static int whiteScore;
     private static int blackScore;
@@ -26,6 +31,14 @@ public class Game {
         setGameState(Backgammon.WELCOME_STATE);
         setHasStarted(Backgammon.GAME_HAS_NOT_STARTED);
         setTurnBearOff(NO_BEAR_OFF);
+        setHitOff(NO_HIT_OFF);
+    }
+
+    public void setHitOff(boolean theHitoff){
+        hitOff = theHitoff;
+    }
+    public boolean getHitOff(){
+        return hitOff;
     }
 
     public void setTurnBearOff(boolean theBearOff){
@@ -112,14 +125,6 @@ public class Game {
                 }
 
             }
-
-            if (Backgammon.theBoard.getWhiteMiddleColumn().pieces.size() > 0){
-                // Set all of the buttons to unvisible first
-                // Check on the dices which buttons must be turned on for the gettingOfMiddleColumn()
-                //
-
-            }
-
 
             // If there are no available moves then the turn is complete
             if (!playerHasPossibleTurn){

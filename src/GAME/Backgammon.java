@@ -48,6 +48,10 @@ public class Backgammon {
                 theGame.gameComputePossibleMoves(); // Compute the possible moves on the columns
                 theMainFrame.showExistingTurnButtons(); // Show the starting move buttons
 
+                while(theGame.getHitOff()){
+                    Thread.sleep(threadSleepTime);
+                }
+
                 while (theGame.getTurnStatus() != Game.COMPLETED_TURN){
                     Thread.sleep(threadSleepTime);
                 }

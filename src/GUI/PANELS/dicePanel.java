@@ -30,29 +30,21 @@ public class dicePanel extends JPanel{
         roll = Backgammon.theBoard.getDiceRoll()[0]; // First Dice Roll
         dice1 = ss.getDie(roll);
 
-//        diceRolls[0] = roll; //First Dice Roll
-
         if(Backgammon.theGame.getCurrentTurn() == Game.WHITE_TURN) {
             g.drawImage(dice1, 700, h - 25, 60, 60, null);
             roll = Backgammon.theBoard.getDiceRoll()[1]; // Second Dice Roll
 
-//            diceRolls[1] = roll;
-
             dice2 = ss.getDie(roll);
             g.drawImage(dice2, 800, h - 25, 60, 60, null);
-//            player++;
         }
         else if(Backgammon.theGame.getCurrentTurn() == Game.BLACK_TURN) {
             g.drawImage(dice1, 300, h - 25, 60, 60, null);
             roll = Backgammon.theBoard.getDiceRoll()[1]; // Second Dice Roll
 
-//            diceRolls[1] = roll;
 
             dice2 = ss.getDie(roll);
             g.drawImage(dice2, 400, h - 25, 60, 60, null);
-//            player--;
         }
-//        Backgammon.theBoard.setDiceRoll(diceRolls);
 
     }
 
