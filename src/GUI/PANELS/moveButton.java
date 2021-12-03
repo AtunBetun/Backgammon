@@ -201,7 +201,3 @@ public class moveButton extends JButton {
     }
 
 }
-
-
-
-

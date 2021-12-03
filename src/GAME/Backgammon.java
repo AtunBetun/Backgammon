@@ -69,6 +69,7 @@ public class Backgammon {
                 while (theGame.getTurnStatus() != Game.COMPLETED_TURN){
                     Thread.sleep(threadSleepTime);
                 }
+
                 System.out.println("Finished Black Turn");
                 theMainFrame.updateTheMainFrame();
 

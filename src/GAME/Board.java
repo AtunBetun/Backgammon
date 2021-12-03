@@ -33,7 +33,6 @@ public class Board {
         blackMiddleColumn = new Column();
         whiteMiddleColumn = new Column();
 
-
         setTheSelectedColumn(NO_COLUMN_SELECTED);
 
         initializeButtons();

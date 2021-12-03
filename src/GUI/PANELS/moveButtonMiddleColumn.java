@@ -1,7 +1,9 @@
 package GUI.PANELS;
 
+import GAME.Backgammon;
 import GAME.Board;
 import GAME.Column;
+import GAME.Game;
 
 import javax.swing.*;
 import javax.swing.border.LineBorder;
@@ -35,7 +37,8 @@ public class moveButtonMiddleColumn extends JButton {
         this.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.printf("Middle Button %s\n", buttonName);
+
+
             }
         });
     }
