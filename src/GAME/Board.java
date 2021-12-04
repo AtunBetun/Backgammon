@@ -78,12 +78,14 @@ public class Board {
         diceRoll = theDiceRoll;
     }
     public void rollTheDice(){
-        diceRoll[0] = randObject.nextInt(1, 7);
-        diceRoll[1] = randObject.nextInt(1,7);
+        diceRoll[0] = randObject.nextInt(5) + 1;
+        diceRoll[1] = randObject.nextInt(5) + 1;
+
+        diceRoll[1] = randObject.nextInt(5) + 1;
 
         // No Doubles for now
         while(diceRoll[0] == diceRoll[1]){
-            diceRoll[1] = randObject.nextInt(1,7);
+            diceRoll[1] = randObject.nextInt(5) + 1;
         }
 
         System.out.printf("\n\n## DICE ROLL dice1: %s  dice2: %s ##\n\n", diceRoll[0], diceRoll[1]);
